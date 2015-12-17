@@ -1,0 +1,12 @@
+{% if products %}
+	<select>
+		<option value="">اختر المنتج</option>
+	{% for product in products %}
+		<option value={{ product.id }}>{{ product.product }}</option>
+	{% endfor %}
+	</select>
+{% else %}
+    <select>
+		<option value="">اختر المنتج</option>
+    </select>
+{% endif %}

@@ -1,0 +1,14 @@
+{% if pharmacies %}
+	<select>
+		<option value="">اختر الصيدلية</option>
+	{% for pharmacy in pharmacies %}
+		<option value={{ pharmacy.id }}>{{ pharmacy.pharmacy }}</option>
+	{% endfor %}
+		<option value="another">أخرى</option>
+	</select>
+{% else %}
+    <select>
+		<option value="">اختر الصيدلية</option>
+		<option value="another">أخرى</option>
+    </select>
+{% endif %}

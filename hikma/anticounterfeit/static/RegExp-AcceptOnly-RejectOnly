@@ -1,0 +1,3 @@
+Capital English
+^[A-Z]{1,3}$|^[A-Z]{7,}$
+^[A-Z]{4,6}$

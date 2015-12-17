@@ -1,0 +1,14 @@
+{% if doctors %}
+	<select>
+		<option value="">اختر الطبيب</option>
+	{% for doctor in doctors %}
+		<option value={{ doctor.id }}>{{ doctor.doctor }}</option>
+	{% endfor %}
+		<option value="another">أخرى</option>
+	</select>
+{% else %}
+    <select>
+		<option value="">اختر الطبيب</option>
+		<option value="another">أخرى</option>
+    </select>
+{% endif %}

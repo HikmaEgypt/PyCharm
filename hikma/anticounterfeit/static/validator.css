@@ -1,0 +1,7 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+input[type=text]{width:300px}
+div.variableValidator {width: 300px; direction:rtl; text-align: right;}
+span.variableValidator {background-color:#0000FF; color:#FFFFFF; font-size:13px; font-weight:bold; 
+			font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";}

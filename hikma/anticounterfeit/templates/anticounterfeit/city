@@ -1,0 +1,12 @@
+{% if cities %}
+	<select>
+		<option value="">المنطقة</option>
+	{% for city in cities %}
+		<option value={{ city.id }}>{{ city.city }}</option>
+	{% endfor %}
+	</select>
+{% else %}
+    <select>
+		<option value="">المنطقة</option>
+    </select>
+{% endif %}
