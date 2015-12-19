@@ -2,13 +2,14 @@
 	<title></title>
 	<head>
 	<meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="validator.js"></script>
-        <script src="validatorDemo.js"></script>
-        <LINK REL=StyleSheet HREF="validator.css" TYPE="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="validator.js"></script>
+		<script src="validatorMessages.js"></script>
+		<script src="validatorDemo.js"></script>
+		<LINK REL=StyleSheet HREF="validator.css" TYPE="text/css">
 	</head>
 	<body>
-	<input type="text" validator="^((?!  )[ a-zA-Z\u0621-\u063A\u0641-\u064A]){3,50}$" validatorMessage="حروف عربية, إتجليزية أو مسافة واحدة بين كل كلمة والأخرى">
+	<input type="text" validator="DblSpc,EnSmCpArDgSpc0350" validatorMessage="Error">
 		<input type="button" id="validateArrayValidator" value="Validate Array Validator">
 	</body>
 </html>

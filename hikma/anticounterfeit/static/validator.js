@@ -1,64 +1,64 @@
-function variableValidator (inputElement) {
+function Validator (inputElement) {
 	this.inputElement				= inputElement;
-	this.validationRule				= new RegExp(this.inputElement.attr("validator"));
-	this.validationMessage			= this.inputElement.attr("validatorMessage");
-	this.validationResult			= false;
+	this.value						= this.inputElement.val();
+	this.validatorAttributeValue	= this.inputElement.attr("validator");
+	this.validatorRules				= this.validatorAttributeValue.split(",");
+	this.validatorsRulesLength		= this.validatorRules.length;
+	this.validatorMessage			= "";
+	this.checkLastRule				= true;
+	this.validatorResult			= false;
 
-	this.validateData = function() {
-		if (this.validationRule.test(this.inputElement.val())) { //true
-			this.validationResult	= true;
-			this.validationMessage	= "";
-		} else {
-			this.validationResult	= false;
+	this.validatorRun = function() {
+		for(i=0; i==this.validatorsRulesLength-2; i++){
+			validatorPattern			= validatorPatterns[this.validatorRules[i]];
+			validatorPatternRegEx		= new RegExp(validatorPattern);
+			validatorMessage			= validatorMessages[this.validatorRules[i]];
+			if(validatorPatternRegEx.test(this.value)){
+				this.validatorResult	= false;
+				this.validatorMessage	= validatorMessage;
+				this.checkLastRule		= false;
+				break;
+			}
+		}
+		if(this.checkLastRule) {
+			validatorPattern = validatorPatterns[this.validatorRules[this.validatorsRulesLength-1]];
+			validatorPatternRegEx		= new RegExp(validatorPattern);
+			validatorMessage			= validatorMessages[this.validatorRules[this.validatorsRulesLength-1]];
+			if (validatorPatternRegEx.test(this.value)) { //true
+				this.validatorResult	= true;
+				this.validatorMessage	= "";
+			} else {
+				this.validatorResult	= false;
+				this.validatorMessage	= validatorMessage;
+			}
 		}
 		var parent = this.inputElement.parent();
-		if (parent.children("div.variableValidator").length>0) {
-			parent.children("div.variableValidator").children("span.variableValidator").html(this.validationMessage);
+		if (parent.children("div.Validator").length>0) {
+			parent.children("div.Validator").children("span.Validator").html(this.validatorMessage);
 		} else {
-			$("<div class='variableValidator'><span class='variableValidator'>" + this.validationMessage + "</span></div>").insertBefore(this.inputElement);
-			//parent.html("<div class='variableValidator'><span class='variableValidator'>" + this.validationMessage	+ "</span></div>" + parent.html());
+			$("<div class='Validator'><span class='Validator'>" + this.validatorMessage + "</span></div>").insertBefore(this.inputElement);
+			//parent.html("<div class='Validator'><span class='Validator'>" + this.validatorMessage	+ "</span></div>" + parent.html());
 		}
-		return this.validationResult;
+		return this.validatorResult;
 	};
-
-	this.getValidationResult	= function() { return this.validationResult; };
-	this.getValidationMessage	= function() { return this.validationMessage; };
 };
 
-function arrayValidator (variableValidatorArray) {
-	this.variableValidatorArray = variableValidatorArray || [];
-	this.arrayValidatorResult	= "True";
-	
-	this.validateArrayValidator = function() {
-		for (arrayValidatorIndex = 0; arrayValidatorIndex < this.variableValidatorArray.length; arrayValidatorIndex++) {
-			this.arrayValidatorResult = this.arrayValidatorResult && this.variableValidatorArray[arrayValidatorIndex].validateData();
-		}
-		return this.arrayValidatorResult;
-	};
-	
-	this.arrayValidatorAddItem = function(arrayValidatorItem) {
-		this.variableValidatorArray.push(arrayValidatorItem);
-		//this.variableValidatorArray[variableValidatorArray.length] = arrayValidatorItem;
-	};
-	
-};
 function validateDataFunction(){
 	$("[validator]").each(function(){
-		var vv = new variableValidator($(this));
-		vv.validateData();
+		var vv = new Validator($(this));
+		vv.validatorRun();
 	});
 	
 	$("[validator]").on("change input keyup paste propertychange", function(){
-		var vv = new variableValidator($(this));
-		vv.validateData();
+		var vv = new Validator($(this));
+		vv.validatorRun();
 	});
 };
 function validateArrayValidatorFunction() {
-	var av = new arrayValidator();
+	validatorArray = true;
 	$("[validator]").each(function(){
-		var vv = new variableValidator($(this));
-		vv.validateData();
-		av.arrayValidatorAddItem(vv);
+		//var vv = new Validator($(this));
+		validatorArray = validatorArray && new Validator($(this)).validatorRun();
 	});
-	alert(av.validateArrayValidator());
+	alert(validatorArray);
 };
