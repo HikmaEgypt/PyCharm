@@ -33,11 +33,11 @@ function Validator (inputElement) {
 			}
 		}
 		var parent = this.inputElement.parent();
-		if (parent.children("div.Validator").length>0) {
-			parent.children("div.Validator").children("span.Validator").html(this.validatorMessage);
+		if (parent.children("div.validator").length>0) {
+			parent.children("div.validator").children("span.validator").html(this.validatorMessage);
 		} else {
-			$("<div class='Validator'><span class='Validator'>" + this.validatorMessage + "</span></div>").insertBefore(this.inputElement);
-			//parent.html("<div class='Validator'><span class='Validator'>" + this.validatorMessage	+ "</span></div>" + parent.html());
+			$("<div class='validator'><span class='validator'>" + this.validatorMessage + "</span></div>").insertBefore(this.inputElement);
+			//parent.html("<div class='validator'><span class='validator'>" + this.validatorMessage	+ "</span></div>" + parent.html());
 		}
 		return this.validatorResult;
 	};
@@ -46,9 +46,9 @@ function validatorArray() {
 	validatorArrayCondition = true;
 	$("[validator]").each(function(){
 		validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run();
-		return validatorArrayCondition;
 	});
-	alert(validatorArrayCondition);
+	return validatorArrayCondition;
+	//alert(validatorArrayCondition);
 };
 function validatorRun(){
 	if(onPageLoad){

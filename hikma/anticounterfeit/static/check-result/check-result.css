@@ -18,7 +18,7 @@ input[type=text]{width:290px; font-family:"Droid Arabic Naskh", "calibri", "verd
 
 label{width:290px; font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif"; font-size:13px; font-weight:bold; direction:RTL; text-align:right;}
 
-div.validator {width: 300px; direction:rtl; text-align: right;}
+div.validator {width: 300px; direction:ltr; text-align: left;}
 span.validator {background-color:#FFFF00; color:#000000; font-size:12px; font-weight:bold; font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";}
 /*
 .message{background:#87CEEB;}

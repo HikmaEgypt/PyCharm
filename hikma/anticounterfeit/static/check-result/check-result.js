@@ -64,7 +64,7 @@ function doctorChange(){
 }
 
 function checkClick() {
-	if(validateArrayValidatorFunction()){
+	if(validatorArray()){
 		postArray = {
 			product			: $("#product").val(),
 			productCode		: $("#productCode").val(),

@@ -1,4 +1,0 @@
-<select>
-	<option>أختر الصيدلية</option>
-	<option>أخرى</option>
-</select>

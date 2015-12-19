@@ -27,13 +27,13 @@
 							{% if QRCode %}
 								<td><input type="text" id="productCode" value="{{ QRCode }}" validator="Empty,Dg"></td></tr>
 							{% else %}
-								<td><input type="text" id="productCode" value="كود المنتج" validator="Empty, Dg"></td></tr>
+								<td><input type="text" id="productCode" value="كود المنتج" validator="Empty,Dg"></td></tr>
 							{% endif %}
 	
 						<tr><th>بيانات المستخدم</th></tr>
 						<tr>
 							<td>
-								<select id="patientOrPharmacist" validator="Empty,Dg">
+								<select id="patientOrPharmacist" validator="Empty,EnSmCp">
 									<option value="">مريض \ صيدلى</option>
 									<option value="Patient">مريض </option>
 									<option value="Pharmacist">صيدلى</option>
