@@ -27,7 +27,7 @@
 							{% if QRCode %}
 								<td><input type="text" id="productCode" value="{{ QRCode }}" validator="Empty,Dg"></td></tr>
 							{% else %}
-								<td><input type="text" id="productCode" value="كود المنتج" validator="Empty,Dg"></td></tr>
+								<td><input type="text" id="productCode" placeholder="كود المنتج" validator="Empty,Dg"></td></tr>
 							{% endif %}
 	
 						<tr><th>بيانات المستخدم</th></tr>
@@ -40,9 +40,9 @@
 								</select>
 							</td>
 							<td rowspan=4 class="tableImage"><img src="/static/check-result/images/user.jpg" alt="User"></td></tr>
-						<tr><td><input type="text" id="checker" value="إسمك" validator="Empty,Spcs,Min03,Max50,EnSmCpArSpc"></td></tr>
-						<tr><td><input type="text" id="checkerMobile" value="رقمك المحمول" validator="Empty,EgyptianMobile"></td></tr>
-						<tr><td><input type="text" id="checkerEmail" value="بريدك الإلكترونى" validator="Empty,Dts,Dshs,Email"></td></tr>
+						<tr><td><input type="text" id="checker" placeholder="إسمك" validator="Empty,Spcs,Min03,Max50,EnSmCpArSpc"></td></tr>
+						<tr><td><input type="text" id="checkerMobile" placeholder="رقمك المحمول" validator="Empty,EgyptianMobile"></td></tr>
+						<tr><td><input type="text" id="checkerEmail" placeholder="بريدك الإلكترونى" validator="Empty,Dts,Dshs,Email"></td></tr>
 	
 						<tr><th>بيانات الصيدلية</th></tr>
 						<tr><td><select id="pharmacyState" validator="Empty,Dg"><option value="" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة">المحافظة</option></select></td>

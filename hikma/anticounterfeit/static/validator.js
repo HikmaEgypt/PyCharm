@@ -9,10 +9,10 @@ function Validator (inputElement) {
 	this.validatorResult			= false;
 
 	this.run = function() {
-		for(i=0; i<this.validatorsRulesLength-1; i++){
-			validatorPattern			= validatorPatterns[this.validatorRules[i]];
-			validatorPatternRegEx		= new RegExp(validatorPattern);
-			validatorMessage			= validatorMessages[this.validatorRules[i]];
+		for(var i=0; i<this.validatorsRulesLength-1; i++){
+			var validatorPattern		= validatorPatterns[this.validatorRules[i]];
+			var validatorPatternRegEx	= new RegExp(validatorPattern);
+			var validatorMessage		= validatorMessages[this.validatorRules[i]];
 			if(validatorPatternRegEx.test(this.value)){
 				this.validatorResult	= false;
 				this.validatorMessage	= validatorMessage;
@@ -21,9 +21,9 @@ function Validator (inputElement) {
 			}
 		}
 		if(this.checkLastRule) {
-			validatorPattern = validatorPatterns[this.validatorRules[this.validatorsRulesLength-1]];
-			validatorPatternRegEx		= new RegExp(validatorPattern);
-			validatorMessage			= validatorMessages[this.validatorRules[this.validatorsRulesLength-1]];
+			var validatorPattern 		= validatorPatterns[this.validatorRules[this.validatorsRulesLength-1]];
+			var validatorPatternRegEx	= new RegExp(validatorPattern);
+			var validatorMessage		= validatorMessages[this.validatorRules[this.validatorsRulesLength-1]];
 			if (validatorPatternRegEx.test(this.value)) { //true
 				this.validatorResult	= true;
 				this.validatorMessage	= "";
@@ -43,17 +43,18 @@ function Validator (inputElement) {
 	};
 };
 function validatorArray() {
-	validatorArrayCondition = true;
+	var validatorArrayCondition = true;
 	$("[validator]").each(function(){
-		validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run();
+		var v = new Validator($(this)).run();
+		validatorArrayCondition = validatorArrayCondition && v;
+		//validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run(); //stopped after first validator !!!
 	});
 	return validatorArrayCondition;
-	//alert(validatorArrayCondition);
 };
 function validatorRun(){
 	if(onPageLoad){
 		$("[validator]").each(function(){new Validator($(this)).run();});
 	};
 	$("[validator]").on(validatorEvents, function(){new Validator($(this)).run();});
-	$("[validatorArray='']").click(validatorArray);
+	//$("[validatorArray='']").click(validatorArray);
 };
