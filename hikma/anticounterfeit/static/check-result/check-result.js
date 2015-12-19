@@ -14,8 +14,7 @@ $(document).ready(function(){
 	$("input#check").click(checkClick);
 
 	/*validatorCodeStart*/
-	validateDataFunction();
-	$("#validateArrayValidator").click(validateArrayValidatorFunction);
+	validatorRun();
 	/*validatorCodeEnd*/
 });
 function pharmacyStateChange() {

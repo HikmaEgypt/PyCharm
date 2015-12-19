@@ -3,13 +3,13 @@
 	<head>
 	<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="validatorSettings.js"></script>
 		<script src="validator.js"></script>
-		<script src="validatorMessages.js"></script>
 		<script src="validatorDemo.js"></script>
 		<LINK REL=StyleSheet HREF="validator.css" TYPE="text/css">
 	</head>
 	<body>
-	<input type="text" validator="DblSpc,EnSmCpArDgSpc0350" validatorMessage="Error">
-		<input type="button" id="validateArrayValidator" value="Validate Array Validator">
+	<input type="text" validator="Empty,Spcs,Min03,Max50,EnSmCpArDgSpc">
+		<input type="button" validatorArray="" value="Validate Array Validator">
 	</body>
 </html>

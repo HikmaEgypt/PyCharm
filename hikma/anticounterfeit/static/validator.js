@@ -8,8 +8,8 @@ function Validator (inputElement) {
 	this.checkLastRule				= true;
 	this.validatorResult			= false;
 
-	this.validatorRun = function() {
-		for(i=0; i==this.validatorsRulesLength-2; i++){
+	this.run = function() {
+		for(i=0; i<this.validatorsRulesLength-1; i++){
 			validatorPattern			= validatorPatterns[this.validatorRules[i]];
 			validatorPatternRegEx		= new RegExp(validatorPattern);
 			validatorMessage			= validatorMessages[this.validatorRules[i]];
@@ -42,23 +42,18 @@ function Validator (inputElement) {
 		return this.validatorResult;
 	};
 };
-
-function validateDataFunction(){
+function validatorArray() {
+	validatorArrayCondition = true;
 	$("[validator]").each(function(){
-		var vv = new Validator($(this));
-		vv.validatorRun();
+		validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run();
+		return validatorArrayCondition;
 	});
-	
-	$("[validator]").on("change input keyup paste propertychange", function(){
-		var vv = new Validator($(this));
-		vv.validatorRun();
-	});
+	alert(validatorArrayCondition);
 };
-function validateArrayValidatorFunction() {
-	validatorArray = true;
-	$("[validator]").each(function(){
-		//var vv = new Validator($(this));
-		validatorArray = validatorArray && new Validator($(this)).validatorRun();
-	});
-	alert(validatorArray);
+function validatorRun(){
+	if(onPageLoad){
+		$("[validator]").each(function(){new Validator($(this)).run();});
+	};
+	$("[validator]").on(validatorEvents, function(){new Validator($(this)).run();});
+	$("[validatorArray='']").click(validatorArray);
 };

@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="/static/ajax-csrf.js"></script>
-        <script src="/static/check-result/validator.js"></script>
+		<script src="/static/validator.js"></script>
+		<script src="/static/check-result/validatorSettings.js"></script>
         <script src="/static/check-result/check-result.js"></script>
         <LINK REL=StyleSheet HREF="/static/check-result/check-result.css" TYPE="text/css">
     </head>
@@ -20,40 +21,40 @@
 					</tfoot>
 					<tbody>
 						<tr><th>بيانات المنتج</th></tr>
-						<tr><td><select id="product" validator="^[ a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="">اختر منتج</option></select></td>
+						<tr><td><select id="product" validator="Empty,Dg"><option value="">اختر منتج</option></select></td>
 							<td rowspan=2 class="tableImage"><img src="/static/check-result/images/product.jpg" alt="Product"></td></tr>
 						<tr>
 							{% if QRCode %}
-								<td><input type="text" id="productCode" value="{{ QRCode }}" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"></td></tr>
+								<td><input type="text" id="productCode" value="{{ QRCode }}" validator="Empty,Dg"></td></tr>
 							{% else %}
-								<td><input type="text" id="productCode" value="كود المنتج" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"></td></tr>
+								<td><input type="text" id="productCode" value="كود المنتج" validator="Empty, Dg"></td></tr>
 							{% endif %}
 	
 						<tr><th>بيانات المستخدم</th></tr>
 						<tr>
 							<td>
-								<select id="patientOrPharmacist" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة">
+								<select id="patientOrPharmacist" validator="Empty,Dg">
 									<option value="">مريض \ صيدلى</option>
 									<option value="Patient">مريض </option>
 									<option value="Pharmacist">صيدلى</option>
 								</select>
 							</td>
 							<td rowspan=4 class="tableImage"><img src="/static/check-result/images/user.jpg" alt="User"></td></tr>
-						<tr><td><input type="text" id="checker" value="إسمك" validator="^[ a-zA-Z0-9\u0621-\u063A\u0641-\u064A]+$" validatorMessage="* قيمة مطلوبة.حروف.أرقام.عربى.إنجليزى"></td></tr>
-						<tr><td><input type="text" id="checkerMobile" value="رقمك المحمول" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"></td></tr>
-						<tr><td><input type="text" id="checkerEmail" value="بريدك الإلكترونى" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"></td></tr>
+						<tr><td><input type="text" id="checker" value="إسمك" validator="Empty,Spcs,Min03,Max50,EnSmCpArSpc"></td></tr>
+						<tr><td><input type="text" id="checkerMobile" value="رقمك المحمول" validator="Empty,EgyptianMobile"></td></tr>
+						<tr><td><input type="text" id="checkerEmail" value="بريدك الإلكترونى" validator="Empty,Dts,Dshs,Email"></td></tr>
 	
 						<tr><th>بيانات الصيدلية</th></tr>
-						<tr><td><select id="pharmacyState" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة">المحافظة</option></select></td>
+						<tr><td><select id="pharmacyState" validator="Empty,Dg"><option value="" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة">المحافظة</option></select></td>
 							<td rowspan=3 class="tableImage"><img src="/static/check-result/images/pharmacy.png" alt="Pharmacy"></td></tr>
-						<tr><td><select id="pharmacyCity" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="">المنطقة</option></select></td></tr>
-						<tr><td><select id="pharmacy" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="">اختر الصيدلية</option></select></td></tr>
+						<tr><td><select id="pharmacyCity" validator="Empty,Dg"><option value="">المنطقة</option></select></td></tr>
+						<tr><td><select id="pharmacy" validator="Empty,Dg"><option value="">اختر الصيدلية</option></select></td></tr>
 	
 						<tr><th>بيانات الطبيب</th></tr>
-						<tr><td><select id="doctorState" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="">المحافظة</option></select></td>
+						<tr><td><select id="doctorState" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة"><option value="">المحافظة</option></select></td>
 							<td rowspan=3 class="tableImage"><img src="/static/check-result/images/doctor.jpg" alt="Doctor"></td></tr>
-						<tr><td><select id="doctorCity" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="">المنطقة</option></select></td></tr>
-						<tr><td><select id="doctor" validator="^[a-zA-Z0-9]+$" validatorMessage="* قيمة مطلوبة"><option value="">اختر الطبيب</option></select></td></tr>
+						<tr><td><select id="doctorCity" validator="Empty,Dg"><option value="">المنطقة</option></select></td></tr>
+						<tr><td><select id="doctor" validator="Empty,Dg"><option value="">اختر الطبيب</option></select></td></tr>
 						<tr><td><input type="button" id="check" value="استعلام" colspan=2></td></tr>
 					</tbody>
 				</table>
