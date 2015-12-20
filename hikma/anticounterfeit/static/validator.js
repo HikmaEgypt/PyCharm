@@ -1,12 +1,12 @@
 function Validator (inputElement) {
-	this.inputElement				= inputElement;
-	this.value						= this.inputElement.val();
-	this.validatorAttributeValue	= this.inputElement.attr("validator");
-	this.validatorRules				= this.validatorAttributeValue.split(",");
-	this.validatorsRulesLength		= this.validatorRules.length;
-	this.validatorMessage			= "";
-	this.checkLastRule				= true;
-	this.validatorResult			= false;
+	this.inputElement					= inputElement;
+	this.value							= this.inputElement.val();
+	this.validatorAttributeValue		= this.inputElement.attr("validator");
+	this.validatorRules					= this.validatorAttributeValue.split(",");
+	this.validatorsRulesLength			= this.validatorRules.length;
+	this.validatorMessage				= "";
+	this.checkLastRule					= true;
+	this.validatorResult				= false;
 
 	this.run = function() {
 		for(var i=0; i<this.validatorsRulesLength-1; i++){
@@ -32,13 +32,7 @@ function Validator (inputElement) {
 				this.validatorMessage	= validatorMessage;
 			}
 		}
-		var parent = this.inputElement.parent();
-		if (parent.children("div.validator").length>0) {
-			parent.children("div.validator").children("span.validator").html(this.validatorMessage);
-		} else {
-			$("<div class='validator'><span class='validator'>" + this.validatorMessage + "</span></div>").insertBefore(this.inputElement);
-			//parent.html("<div class='validator'><span class='validator'>" + this.validatorMessage	+ "</span></div>" + parent.html());
-		}
+		this.inputElement.parent().children("div.validator").children("span.validator").html(this.validatorMessage);
 		return this.validatorResult;
 	};
 };
@@ -52,9 +46,9 @@ function validatorArray() {
 	return validatorArrayCondition;
 };
 function validatorRun(){
+	$("<div class='validator'><span class='validator'></span></div>").insertBefore($("[validator]"));
 	if(onPageLoad){
 		$("[validator]").each(function(){new Validator($(this)).run();});
 	};
 	$("[validator]").on(validatorEvents, function(){new Validator($(this)).run();});
-	//$("[validatorArray='']").click(validatorArray);
 };
