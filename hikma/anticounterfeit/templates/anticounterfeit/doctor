@@ -4,11 +4,11 @@
 	{% for doctor in doctors %}
 		<option value={{ doctor.id }}>{{ doctor.doctor }}</option>
 	{% endfor %}
-		<option value="another">أخرى</option>
+		<option value=0>أخرى</option>
 	</select>
 {% else %}
     <select>
 		<option value="">اختر الطبيب</option>
-		<option value="another">أخرى</option>
+		<option value=0>أخرى</option>
     </select>
 {% endif %}

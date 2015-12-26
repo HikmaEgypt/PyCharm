@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Product, State, City, Pharmacy, Doctor
+from .models import Product, UniqueRandomNumbersGroup, State, City, Pharmacy, Doctor
 # Register your models here.
 #===============================================================================
 '''
@@ -23,6 +23,12 @@ class ProductAdmin(admin.ModelAdmin):
     
 
 admin.site.register(Product, ProductAdmin)
+#===============================================================================
+class UniqueRandomNumbersGroupAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ("uniqueRandomNumbersGroup", {'fields': ['product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']}),
+    ]
+admin.site.register(UniqueRandomNumbersGroup, UniqueRandomNumbersGroupAdmin)
 #===============================================================================
 class StateAdmin(admin.ModelAdmin):
     fieldsets = [

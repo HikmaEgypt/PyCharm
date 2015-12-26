@@ -6,7 +6,6 @@ from django.shortcuts import render, render_to_response, get_object_or_404, get_
 from .models import Product, State, City, Pharmacy, Doctor
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
-#from akelsaman import VariableValidator, ArrayValidator
 
 # Create your views here.
 @ensure_csrf_cookie # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
@@ -44,7 +43,7 @@ def checkVariableValidator(request, variableValidator, regexPattern, errorMessag
     import re
     if (re.match(regexPattern, variableValidator)):
         return HttpResponse(errorMessage)
-'''        
+'''
 @ensure_csrf_cookie  # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
 def result(request):
     product         = request.POST['product']

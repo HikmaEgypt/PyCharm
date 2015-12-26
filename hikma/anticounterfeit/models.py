@@ -10,7 +10,7 @@ class Product(models.Model):
     image           = models.ImageField(upload_to='%y%m%d', height_field=None, width_field=None, max_length=100)
     
     def image_thumb(self):
-        return '<img src="/media/%s" width="100" height="100" />' % (self.image)
+        return '<img src="/media/%s" width="100" height="100"/>' % (self.image)
     
     image_thumb.short_description = 'Image'
     image_thumb.allow_tags = True
@@ -18,23 +18,25 @@ class Product(models.Model):
     def __unicode__(self):
         return self.product
 
-class publicCode(models.Model):
-    publicCode      = models.BigIntegerField('Public Code', null=False, blank=False, unique=True)
-    active          = models.BooleanField('Active', default=False, null=False, blank=False)
-    product         = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
+class UniqueRandomNumbersGroup(models.Model):
+    product                     = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
+    uniqueRandomNumbersCount    = models.PositiveIntegerField('uniqueRandomNumbersCount', null=False, blank=False)
+    internalOrExternal          = models.CharField('Internal Or External', null=False, blank=False, max_length=8)
+    batchNumber                 = models.PositiveSmallIntegerField('Batch Number', null=False, blank=False)
+    dateAndTime                 = models.DateTimeField('Date and Time', null=False, blank=False, unique=True)
+    active                      = models.BooleanField('Active', default=False, null=False, blank=False)
+
+    def __unicode__(self):
+        return self.id
+
+class UniqueRandomNumber(models.Model):
+    uniqueRandomNumber          = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)
+    uniqueRandomNumbersGroup    = models.ForeignKey(UniqueRandomNumbersGroup, null=False, blank=False, on_delete=models.PROTECT)
     
     def __unicode__(self):
-        return self.publicCode
+        return self.uniqueRandomNumber
 
-class UserCode(models.Model):
-    userCode        = models.BigIntegerField('User Code', null=False, blank=False, unique=True)
-    active          = models.BooleanField('Active', default=False, null=False, blank=False)
-    product         = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
-    
-    def __unicode__(self):
-        return self.userCode
-
-class State (models.Model):
+class State(models.Model):
     state           = models.CharField('State', null=False, blank=False, unique=True, max_length=20)
 
     def __unicode__(self):
@@ -78,8 +80,8 @@ class Doctor(models.Model):
 
 class Check(models.Model):
     productFK       = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
-    pharmacyFK      = models.ForeignKey(Pharmacy, null=False, blank=False, on_delete=models.PROTECT)
-    doctorFK        = models.ForeignKey(Doctor, null=False, blank=False, on_delete=models.PROTECT)
+    pharmacyCityFK  = models.ForeignKey(Pharmacy, null=False, blank=False, on_delete=models.PROTECT)
+    doctorCityFK    = models.ForeignKey(Doctor, null=False, blank=False, on_delete=models.PROTECT)
     checker         = models.CharField('Checker', null=False, blank=False, max_length=50)
     checkerMobile   = models.CharField('Cheaker Mobile', null=False, blank=False, max_length=11)
     checkerEmail    = models.CharField('Cheaker Email', null=False, blank=False, max_length=50)

@@ -1,14 +1,31 @@
-function Validator (validatorInput) {
-	this.validatorInput					= validatorInput;
-	this.value							= this.validatorInput.val();
-	this.validatorAttributeValue		= this.validatorInput.attr("validator");
-	this.validatorRules					= this.validatorAttributeValue.split(",");
-	this.validatorsRulesLength			= this.validatorRules.length;
-	this.validatorMessage				= "";
-	this.checkLastRule					= true;
-	this.validatorResult				= false;
+import re
+#import validatorPattern, validatorMessages from validatorSettings
+from validatorSettings import validatorPatterns, validatorMessages
 
-	this.run = function() {
+class Validator:
+	def __init__(self, validatorInput, validatorRules):
+		self.validatorInput					= validatorInput
+		self.validatorRules					= validatorRules.split(",")
+		self.validatorsRulesLength			= self.validatorRules.__len__()
+		self.validatorMessage				= ""
+
+	def run(self):
+		#newText = self.validatorInput
+		for i in range(0,self.validatorsRulesLength):
+			validatorPattern = validatorPatterns[self.validatorRules[i]];
+			validatorMessage = validatorMessages[self.validatorRules[i]];
+			searchObject = re.search(validatorPattern, self.validatorInput)
+			if(searchObject):
+				self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
+				#newText = re.sub(validatorPattern, "{{" + searchObject.group() + "}}", newText)
+		#print(newText)
+		return self.validatorMessage
+
+ake = Validator("A--hma  d--  -11111", "Empty,Dshs,Spcs")
+print(ake.run())
+
+
+'''
 		for (var i = 0; i < this.validatorsRulesLength - 1; i++) {
 			var validatorPattern = validatorPatterns[this.validatorRules[i]];
 			var validatorPatternRegEx = new RegExp(validatorPattern);
@@ -32,7 +49,7 @@ function Validator (validatorInput) {
 				this.validatorMessage = validatorMessage;
 			}
 		}
-		this.validatorInput.parent().children("div.validator").children("span.validator").html(this.validatorMessage);
+		this.inputElement.parent().children("div.validator").children("span.validator").html(this.validatorMessage);
 		return this.validatorResult;
 	};
 };
@@ -52,3 +69,4 @@ function validatorRun(){
 	};
 	$("[validator]:visible").on(validatorEvents, function(){new Validator($(this)).run();});
 };
+'''

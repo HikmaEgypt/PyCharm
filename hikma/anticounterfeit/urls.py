@@ -7,7 +7,7 @@ urlpatterns = [
                url(r'^$', views.index, name='index'),
                # ex: /anticounterfeit/check/
                # ex: /anticounterfeit/check/5463192
-               url(r'^(check/|check/(?P<QRCode>[0-9]+))$', views.check, name='check'),
+               url(r'^(check/|check/(?P<QRCode>[0-9a-zA-Z]+))$', views.check, name='check'),
                # ex: /anticounterfeit/product/
                url(r'^product/$', views.product, name='product'),
                # ex: /anticounterfeit/state

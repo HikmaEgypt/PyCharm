@@ -48,14 +48,16 @@
 						<tr><td><select id="pharmacyState" validator="Empty,Dg"><option value="" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة">المحافظة</option></select></td>
 							<td rowspan=3 class="tableImage"><img src="/static/check-result/images/pharmacy.png" alt="Pharmacy"></td></tr>
 						<tr><td><select id="pharmacyCity" validator="Empty,Dg"><option value="">المنطقة</option></select></td></tr>
-						<tr><td><select id="pharmacy" validator="Empty,Dg"><option value="">اختر الصيدلية</option></select></td></tr>
+						<tr><td><div><select id="pharmacy" validator="Empty,Dg"><option value="">اختر الصيدلية</option></select></div>
+								<div><input type="text" id="pharmacy" validator="Empty,Spcs,Min03,Max50,ArDgSpc" style="display:none;"/></div></td></tr>
 	
 						<tr><th>بيانات الطبيب</th></tr>
 						<tr><td><select id="doctorState" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة"><option value="">المحافظة</option></select></td>
 							<td rowspan=3 class="tableImage"><img src="/static/check-result/images/doctor.jpg" alt="Doctor"></td></tr>
 						<tr><td><select id="doctorCity" validator="Empty,Dg"><option value="">المنطقة</option></select></td></tr>
-						<tr><td><select id="doctor" validator="Empty,Dg"><option value="">اختر الطبيب</option></select></td></tr>
-						<tr><td><input type="button" id="check" value="استعلام" colspan=2></td></tr>
+						<tr><td><div><select id="doctor" validator="Empty,Dg"><option value="">اختر الطبيب</option></select></div>
+								<div><input type="text" id="doctor" validator="Empty,Spcs,Min03,Max50,ArDgSpc" style="display:none;"/></div></td></tr>
+						<tr><td><input type="button" id="check" value="استعلام" colspan=2></tr>
 					</tbody>
 				</table>
 			</form>
