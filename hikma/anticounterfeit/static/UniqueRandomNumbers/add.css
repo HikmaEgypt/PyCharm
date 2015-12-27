@@ -8,9 +8,13 @@ div {
 }
 div.form {
     color:#000000;
-    background-color:#0093D1;
+    #background-color:#0093D1;
     #background-color:#6699FF;
     #background-color:#00CCCC;
+    background-color:#EEEEFF;
+    border:solid;
+    border-width:2px;
+    border-color:#000066;
 }
 div.validator {
     direction:ltr;
