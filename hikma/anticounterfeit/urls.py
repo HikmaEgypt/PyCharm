@@ -8,6 +8,8 @@ urlpatterns = [
                # ex: /anticounterfeit/check/
                # ex: /anticounterfeit/check/5463192
                url(r'^(check/|check/(?P<QRCode>[0-9a-zA-Z]+))$', views.check, name='check'),
+               # ex: /anticounterfeit/UniqueRandomNumbers/add
+               url(r'^UniqueRandomNumbers/add/$', views.addUniqueRandomNumbers, name='addUniqueRandomNumbers'),
                # ex: /anticounterfeit/product/
                url(r'^product/$', views.product, name='product'),
                # ex: /anticounterfeit/state

@@ -19,6 +19,9 @@ def check(request, QRCode=0):
     #return render_to_response('anticounterfeit/check.html', c)
     return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
 
+def addUniqueRandomNumbers(request):
+    return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html',)
+
 def product(request):
     products = Product.objects.all()
     return render(request, 'anticounterfeit/product', {'products': products})

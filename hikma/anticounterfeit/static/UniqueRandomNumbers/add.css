@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+div {
+    height:auto;
+    width: 310px;
+    text-align: center;
+}
+div.form {
+    color:#000000;
+    background-color:#0093D1;
+    #background-color:#6699FF;
+    #background-color:#00CCCC;
+}
+div.validator {
+    direction:ltr;
+    text-align:left;
+}
+span.validator {
+    color:#000000;
+    background-color:#FFFF00;
+    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size:14px;
+    font-weight:bold;
+}
+label, input[type=text], select {
+    display:inline-block;
+    margin:5px;
+    height:30px;
+    width:300px;
+    line-height:30px;
+    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size:16px;
+    font-weight:bold;
+    direction:ltr;
+    text-align:left;
+}
+label.title {
+    text-align: center;
+    color:#FFFFFF;
+    #background-color:#004C70;
+    #background-color:#003399;
+    background-color:#000066;
+}
+span.label {
+    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size:16px;
+    font-weight:bold;
+}
+input[type=button] {
+    display:inline-block;
+    margin:5px;
+    height:30px;
+    line-height:30px;
+    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size:16px;
+    font-weight:bold;
+    /*color:#FFFFFF;
+    background-color:#000066;*/
+    color:#000000;
+    background-color:#FFFFFF;
+}

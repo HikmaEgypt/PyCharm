@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Add Unique Random Numbers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="/static/common/ajax-csrf.js"></script>
+		<script src="/static/common/validator.js"></script>
+		<script src="/static/common/validatorSettings.js"></script>
+        <script src="/static/UniqueRandomNumbers/add.js"></script>
+		<LINK REL=StyleSheet HREF="/static/UniqueRandomNumbers/add.css" TYPE="text/css">
+    </head>
+	<body>
+		<form>
+			<div class="form">
+                <label class="title">Add unique random numbers</label>
+				<div class="input"><select id="URN-product" name="URN-product"></select></div>
+				<div class="input">
+					<input type="radio" id="URN-internalOrExternal" name="URN-internalOrExternal" value="Internal"/>
+                    <span class="label">Internal</span>
+					<input type="radio" id="URN-internalOrExternal" name="URN-internalOrExternal" value="External"/>
+                    <span class="label">External</span>
+				</div>
+				<div class="input"><input type="text" id="URN-uniqueRandomNumbersCount" name="URN-uniqueRandomNumbersCount" data="aaa" placeholder="Unique Random Number Count"></div>
+				<div class="input"><input type="text" id="URN-batchNumber" name="URN-batchNumber" placeholder="Batch Number"></div>
+				<div class="input"><input type="text" id="URN-dateAndTime" name="URN-dateAndTime" placeholder="Date And Time"></div>
+                <input type="button" id="URN-add" value="Add"/>
+			</div>
+		</form>
+	</body>
+</html>
