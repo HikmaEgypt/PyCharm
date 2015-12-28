@@ -1,72 +1,53 @@
+#how to:
+#   ake = Validator(ANYVARIABLE, "Empty,Dshs,Spcs")
+#   print(ake.run())
+
 import re
-#import validatorPattern, validatorMessages from validatorSettings
-from validatorSettings import validatorPatterns, validatorMessages
+from .validatorSettings import validatorPatterns, validatorMessages
 
 class Validator:
+
 	def __init__(self, validatorInput, validatorRules):
-		self.validatorInput					= validatorInput
-		self.validatorRules					= validatorRules.split(",")
-		self.validatorsRulesLength			= self.validatorRules.__len__()
-		self.validatorMessage				= ""
+		self.validatorInput			    = validatorInput
+		self.validatorRules			    = validatorRules.split(",")
+		self.validatorsRulesLength      = self.validatorRules.__len__()
+		self.validatorMessage           = ""
 
 	def run(self):
-		#newText = self.validatorInput
-		for i in range(0,self.validatorsRulesLength):
-			validatorPattern = validatorPatterns[self.validatorRules[i]];
-			validatorMessage = validatorMessages[self.validatorRules[i]];
-			searchObject = re.search(validatorPattern, self.validatorInput)
+		for i in range(0, self.validatorsRulesLength - 1):
+			validatorPattern            = validatorPatterns[self.validatorRules[i]]
+			validatorMessage            = validatorMessages[self.validatorRules[i]]
+			searchObject                = re.search(validatorPattern, self.validatorInput)
 			if(searchObject):
-				self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
-				#newText = re.sub(validatorPattern, "{{" + searchObject.group() + "}}", newText)
-		#print(newText)
+				self.validatorMessage   = self.validatorMessage + "\n" + validatorMessage
+
+			# last rule is the rule of the accepted pattern
+
+			validatorPattern            = validatorPatterns[self.validatorRules[self.validatorsRulesLength - 1]]
+			validatorMessage            = validatorMessages[self.validatorRules[self.validatorsRulesLength - 1]]
+			searchObject                = re.search(validatorPattern, self.validatorInput)
+			if not (searchObject):
+				self.validatorMessage   = self.validatorMessage + "\n" + validatorMessage
+
 		return self.validatorMessage
 
-ake = Validator("A--hma  d--  -11111", "Empty,Dshs,Spcs")
-print(ake.run())
+	def runForHTML(self):
+		validatorMessage = self.run
 
+class ValidatorsArray:
 
-'''
-		for (var i = 0; i < this.validatorsRulesLength - 1; i++) {
-			var validatorPattern = validatorPatterns[this.validatorRules[i]];
-			var validatorPatternRegEx = new RegExp(validatorPattern);
-			var validatorMessage = validatorMessages[this.validatorRules[i]];
-			if (validatorPatternRegEx.test(this.value)) {
-				this.validatorResult = false;
-				this.validatorMessage = validatorMessage;
-				this.checkLastRule = false;
-				break;
-			}
-		}
-		if (this.checkLastRule) {
-			var validatorPattern = validatorPatterns[this.validatorRules[this.validatorsRulesLength - 1]];
-			var validatorPatternRegEx = new RegExp(validatorPattern);
-			var validatorMessage = validatorMessages[this.validatorRules[this.validatorsRulesLength - 1]];
-			if (validatorPatternRegEx.test(this.value)) { //true
-				this.validatorResult = true;
-				this.validatorMessage = "";
-			} else {
-				this.validatorResult = false;
-				this.validatorMessage = validatorMessage;
-			}
-		}
-		this.inputElement.parent().children("div.validator").children("span.validator").html(this.validatorMessage);
-		return this.validatorResult;
-	};
-};
-function validatorArray() {
-	var validatorArrayCondition = true;
-	$("[validator]:visible").each(function(){
-		var v = new Validator($(this)).run();
-		validatorArrayCondition = validatorArrayCondition && v;
-		//validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run(); //stopped after first validator !!!
-	});
-	return validatorArrayCondition;
-};
-function validatorRun(){
-	$("<div class='validator'><span class='validator'></span></div>").insertBefore($("[validator]"));
-	if(onPageLoad){
-		$("[validator]:visible").each(function(){new Validator($(this)).run();});
-	};
-	$("[validator]:visible").on(validatorEvents, function(){new Validator($(this)).run();});
-};
-'''
+	def __init__(self, validatorsInputs, modelClass):
+		self.validatorsInputs               = validatorsInputs
+		self.modelObject                    = modelClass()
+		self.validatorsRules                = self.modelObject.validatorsRules()
+		self.validatorsArrayCondition       = True
+		self.validatorsArrayMessages        = ""
+
+	def run(self):
+		for validatorRules in self.validatorsRules:
+			validator                       = Validator(self.validatorsInputs[validatorRules], self.validatorsRules[validatorRules])
+			self.validatorsArrayMessages    = self.validatorsArrayMessages + validator.run()
+
+			#validatorArrayCondition = validatorArrayCondition && v;
+			#validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run(); //stopped after first validator !!!
+		return self.validatorsArrayMessages

@@ -3,9 +3,10 @@
 from django.http import HttpResponse, Http404
 from django.template import RequestContext, loader
 from django.shortcuts import render, render_to_response, get_object_or_404, get_list_or_404
-from .models import Product, State, City, Pharmacy, Doctor
+from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbersGroup
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
+from .akelsaman.Validator import Validator, ValidatorsArray
 
 # Create your views here.
 @ensure_csrf_cookie # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
@@ -20,7 +21,27 @@ def check(request, QRCode=0):
     return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
 
 def addUniqueRandomNumbers(request):
-    return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html',)
+	if(request.POST):
+		#return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html', {'postArray':request.POST})
+
+		'''
+	    for key in request.POST:
+		    value = request.POST[key]
+		    result = "Key is : " + key + ", Value is :" + value + "\n"
+		    return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html',result)
+	    '''
+
+		'''
+		vv          = UniqueRandomNumbersGroup()
+		vvv         = vv.validatorsRules()
+		ake         = Validator(request.POST['URN-uniqueRandomNumbersCount'], vvv['uniqueRandomNumbersCount'])
+		response    = ake.run()
+		return HttpResponse(response)
+		'''
+		va = ValidatorsArray(request.POST, UniqueRandomNumbersGroup)
+		return HttpResponse(va.run())
+	else:
+		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html',)
 
 def product(request):
     products = Product.objects.all()

@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $("select#URN-product").load("/anticounterfeit/product");
-	$("input#URN-add").click(addClick);
+    $("select#product").load("/anticounterfeit/product/");
+	$("input#add").click(addClick);
 	/*validatorCodeStart*/
 	validatorRun();
 	/*validatorCodeEnd*/
@@ -17,6 +17,11 @@ function addClick() {
             postArray[$(this).attr("name")] = $(this).val();
         }
     });
-    alert(postArray["URN-internalOrExternal"]);
+    //alert(postArray["URN-internalOrExternal"]);
+    $.post("/anticounterfeit/UniqueRandomNumbers/add/", postArray, function(data, status){
+        //if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='add,result']").html(data); }
+        alert(data);
+        //alert("Status: " + status);
+    });
 
 }

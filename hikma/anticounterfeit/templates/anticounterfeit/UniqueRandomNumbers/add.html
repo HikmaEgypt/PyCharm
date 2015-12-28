@@ -11,21 +11,24 @@
 		<LINK REL=StyleSheet HREF="/static/UniqueRandomNumbers/add.css" TYPE="text/css">
     </head>
 	<body>
-		<form>
+		<div window="add,result">
 			<div class="form">
-                <label class="title">Add unique random numbers</label>
-				<div class="input"><select id="URN-product" name="URN-product"></select></div>
-				<div class="input">
-					<input type="radio" id="URN-internalOrExternal" name="URN-internalOrExternal" value="Internal"/>
-                    <span class="label">Internal</span>
-					<input type="radio" id="URN-internalOrExternal" name="URN-internalOrExternal" value="External"/>
-                    <span class="label">External</span>
-				</div>
-				<div class="input"><input type="text" id="URN-uniqueRandomNumbersCount" name="URN-uniqueRandomNumbersCount" placeholder="Unique Random Number Count"></div>
-				<div class="input"><input type="text" id="URN-batchNumber" name="URN-batchNumber" placeholder="Batch Number"></div>
-				<div class="input"><input type="text" id="URN-dateAndTime" name="URN-dateAndTime" placeholder="Date And Time"></div>
-                <input type="button" id="URN-add" value="Add"/>
+				<form>
+					{% csrf_token %}
+					<label class="title">Add unique random numbers</label>
+					<div class="input"><select id="product" name="product"></select></div>
+					<div class="input">
+						<input type="radio" id="internalOrExternal" name="internalOrExternal" value="Internal"/>
+						<span class="label">Internal</span>
+						<input type="radio" id="internalOrExternal" name="internalOrExternal" value="External"/>
+						<span class="label">External</span>
+					</div>
+					<div class="input"><input type="text" id="uniqueRandomNumbersCount" name="uniqueRandomNumbersCount" placeholder="Unique Random Number Count"></div>
+					<div class="input"><input type="text" id="batchNumber" name="batchNumber" placeholder="Batch Number"></div>
+					<div class="input"><input type="text" id="dateAndTime" name="dateAndTime" placeholder="Date And Time"></div>
+					<input type="button" id="add" value="Add"/>
+				</form>
 			</div>
-		</form>
+		</div>
 	</body>
 </html>

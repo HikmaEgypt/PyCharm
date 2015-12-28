@@ -29,6 +29,17 @@ class UniqueRandomNumbersGroup(models.Model):
     def __unicode__(self):
         return self.id
 
+    def validatorsRules(self):
+        return {
+            "uniqueRandomNumbersCount":"Empty,Dg"
+            #"product":"Empty,Dg",
+            #"uniqueRandomNumbersCount":"Empty,Dg",
+            #"internalOrExternal":"internalOrExternal",
+            #"batchNumber":"EnSmCpDg",
+            #"dateAndTime":"",
+            #"active":""
+        }
+
 class UniqueRandomNumber(models.Model):
     uniqueRandomNumber          = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)
     uniqueRandomNumbersGroup    = models.ForeignKey(UniqueRandomNumbersGroup, null=False, blank=False, on_delete=models.PROTECT)
