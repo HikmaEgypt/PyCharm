@@ -4,7 +4,10 @@ validatorPatterns = {
 	"Spcs": "[ ][ ]",
 	"Dts": "[.][.]",
 	"Dshs": "[-][-]",
-	"Month01-12": "^2015.([1][3-9]|[2-9][0-9])",
+	"Month01-12": "^2015\.([1][3-9]|[2-9][0-9])",
+	"MonthFormatIsWrong": "^2015\.([0-9]{0,1}\.|[0-9]{3,}\.)",
+	"Day01-31": "^2015\.[0-9][0-9]\.([3][2-9]|[4-9][0-9])",
+	"DayFormatIsWrong": "^2015\.[0-9][0-9]\.([0-9]{0,1} |[0-9]{3,} )",
 	"Min03": "^.{1,2}$",
 	"Max50": "^.{51,}$",
 	# accept
@@ -28,6 +31,9 @@ validatorMessages = {
 	"Dts": "Can not use more than one dot (.) in series",
 	"Dshs": "Can not use more than one dash (-) in series",
 	"Month01-12": "Month accepts only from 01 to 12",
+	"MonthFormatIsWrong": "Kindly enter valid month in correct format of 2 digits ex: 09",
+	"Day01-31": "Month accepts only from 01 to 31",
+	"DayFormatIsWrong": "Kindly enter valid day in correct format of 2 digits ex: 05",
 	"Min03": "Can not be less than 03 character",
 	"Max50": "Can not be more than 50 character",
 	# accept

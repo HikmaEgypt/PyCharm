@@ -33,10 +33,10 @@ class UniqueRandomNumbersGroup(models.Model):
 	def validatorsRulesDictionary(self):
 		validatorsRulesDictionary = collections.OrderedDict()
 		validatorsRulesDictionary["product"] = "Empty,Dg"
-		validatorsRulesDictionary["uniqueRandomNumbersCount"] = "Empty,Spcs,Dshs,Dg"
+		validatorsRulesDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
 		validatorsRulesDictionary["internalOrExternal"]="Empty,internalOrExternal"
 		validatorsRulesDictionary["batchNumber"] = "Empty,EnSmCpDg"
-		validatorsRulesDictionary["dateAndTime"]="Empty,Month01-12,YYYY.MM.DD HH:MM"
+		validatorsRulesDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,YYYY.MM.DD HH:MM"
 		# validatorsRulesDictionary["active"]=""
 
 		return validatorsRulesDictionary
