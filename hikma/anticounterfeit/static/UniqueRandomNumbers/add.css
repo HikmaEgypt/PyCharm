@@ -1,66 +1,97 @@
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 
+table.validationTable {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+table.validationTable th {
+    color: #FFFFFF;
+    background-color: #000066;
+    font-weight: bold;
+    text-align: left;
+}
+
+table.validationTable tr {
+    text-align: left;
+    font-weight: normal;
+    color: #000000;
+    background-color: #EEEEFF;
+}
+
+table.validationTable tr:hover {
+    text-align: left;
+    font-weight: normal;
+    background-color: #98FB98;
+    color: #000000;
+}
+
 div {
-    height:auto;
-    width:auto;
+    height: auto;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
+
 div.form {
-    color:#000000;
-    #background-color:#0093D1;
-    #background-color:#6699FF;
-    #background-color:#00CCCC;
-    background-color:#EEEEFF;
-    border:solid;
-    border-width:2px;
-    border-color:#000066;
+    background-color: #EEEEFF;
+    color: #000000;
+    border: solid;
+    border-width: 2px;
+    border-color: #000066;
 }
+
 div.validator {
-    direction:ltr;
-    text-align:left;
+    direction: ltr;
+    text-align: left;
 }
+
 span.validator {
-    color:#000000;
-    background-color:#FFFF00;
-    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
-    font-size:14px;
-    font-weight:bold;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #FFFF00;
+    color: #000000;
 }
+
 label, input[type=text], select {
-    display:inline-block;
-    margin:5px;
-    height:30px;
-    width:300px;
-    line-height:30px;
-    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
-    font-size:16px;
-    font-weight:bold;
-    direction:ltr;
-    text-align:left;
+    display: inline-block;
+    height: 30px;
+    width: 300px;
+    margin: 5px;
+    line-height: 30px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px;
+    font-weight: bold;
+    direction: ltr;
+    text-align: center;
 }
+
 label.title {
     text-align: center;
-    color:#FFFFFF;
-    #background-color:#004C70;
-    #background-color:#003399;
-    background-color:#000066;
+    background-color: #000066;
+    color: #FFFFFF;
 }
+
 span.label {
-    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
-    font-size:16px;
-    font-weight:bold;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px;
+    font-weight: bold;
 }
+
 input[type=button] {
-    display:inline-block;
-    margin:5px;
-    height:30px;
-    line-height:30px;
-    font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
-    font-size:16px;
-    font-weight:bold;
-    /*color:#FFFFFF;
-    background-color:#000066;*/
-    color:#000000;
-    background-color:#FFFFFF;
+    display: inline-block;
+    height: 30px;
+    margin: 5px;
+    line-height: 30px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    color: #000000;
 }

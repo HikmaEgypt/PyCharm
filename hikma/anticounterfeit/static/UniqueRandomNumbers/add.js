@@ -1,5 +1,8 @@
 $(document).ready(function(){
     $("select#product").load("/anticounterfeit/product/");
+    dt = new Date();
+    $("input[type=text]#dateAndTime").val(dt.getFullYear() + "." + (dt.getMonth() + 1) + "." + dt.getDate() + " "
+        + dt.getHours() + ":" + dt.getMinutes());
 	$("input#add").click(addClick);
 	/*validatorCodeStart*/
 	validatorRun();
@@ -19,8 +22,7 @@ function addClick() {
     });
     //alert(postArray["URN-internalOrExternal"]);
     $.post("/anticounterfeit/UniqueRandomNumbers/add/", postArray, function(data, status){
-        //if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='add,result']").html(data); }
-        alert(data);
+        if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='validation']").html(data); }
         //alert("Status: " + status);
     });
 

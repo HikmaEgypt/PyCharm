@@ -8,21 +8,24 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .akelsaman.Validator import Validator, ValidatorsArray
 
+
 # Create your views here.
-@ensure_csrf_cookie # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
+@ensure_csrf_cookie  # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
 def index(request):
-    response = "AntiCounterFeit Home Page"
-    return HttpResponse(response)
+	response = "AntiCounterFeit Home Page"
+	return HttpResponse(response)
+
 
 def check(request, QRCode=0):
-    #c = {}
-    #c.update(csrf(request))
-    #return render_to_response('anticounterfeit/check.html', c)
-    return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
+	# c = {}
+	# c.update(csrf(request))
+	# return render_to_response('anticounterfeit/check.html', c)
+	return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
+
 
 def addUniqueRandomNumbers(request):
-	if(request.POST):
-		#return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html', {'postArray':request.POST})
+	if (request.POST):
+		# return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html', {'postArray':request.POST})
 
 		'''
 	    for key in request.POST:
@@ -39,61 +42,70 @@ def addUniqueRandomNumbers(request):
 		return HttpResponse(response)
 		'''
 		va = ValidatorsArray(request.POST, UniqueRandomNumbersGroup)
-		return HttpResponse(va.run())
+		return HttpResponse(va.runHTML())
 	else:
-		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html',)
+		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html', )
+
 
 def product(request):
-    products = Product.objects.all()
-    return render(request, 'anticounterfeit/product', {'products': products})
+	products = Product.objects.all()
+	return render(request, 'anticounterfeit/product', {'products': products})
+
 
 def state(request):
-    states = State.objects.all()
-    return render(request, 'anticounterfeit/state', {'states': states})
+	states = State.objects.all()
+	return render(request, 'anticounterfeit/state', {'states': states})
+
 
 def city(request, stateID):
-    cities = City.objects.filter(state=stateID)
-    return render(request, 'anticounterfeit/city', {'cities': cities})
+	cities = City.objects.filter(state=stateID)
+	return render(request, 'anticounterfeit/city', {'cities': cities})
+
 
 def pharmacy(request, cityID):
-    pharmacies = Pharmacy.objects.filter(city=cityID)
-    return render(request, 'anticounterfeit/pharmacy', {'pharmacies': pharmacies})
+	pharmacies = Pharmacy.objects.filter(city=cityID)
+	return render(request, 'anticounterfeit/pharmacy', {'pharmacies': pharmacies})
+
 
 def doctor(request, cityID):
-    doctors = Doctor.objects.filter(city=cityID)
-    return render(request, 'anticounterfeit/doctor', {'doctors': doctors})
-'''    
+	doctors = Doctor.objects.filter(city=cityID)
+	return render(request, 'anticounterfeit/doctor', {'doctors': doctors})
+
+
+'''
 def checkVariableValidator(request, variableValidator, regexPattern, errorMessage):
     import re
     if (re.match(regexPattern, variableValidator)):
         return HttpResponse(errorMessage)
 '''
+
+
 @ensure_csrf_cookie  # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
 def result(request):
-    product         = request.POST['product']
-    productCode     = request.POST['productCode']
-    #pharmacy        = request.POST['pharmacy']
-    #doctor          = request.POST['doctor']
-    checker         = request.POST['checker']
-    #cheakerName     = request.POST['checkerName']
-    '''
-    productVariableValidator         = VariableValidator(product, r'\W|^$', u'Error:* من فضلك تأكد من إختيار المنتج')
-    productCodeVariableValidator     = VariableValidator(productCode, r'\D|^$', u'Error:* من فضلك تأكد من ادخال كود المنتج بطريقة صحيح')
-    checkerVariableValidator         = VariableValidator(checker, r'^أ-ى|^$', u'Error:* من فضلك تاكد من إدخال إسمك بطريقة صحيحة')
-    
-    arrayValidator = ArrayValidator([productVariableValidator, productCodeVariableValidator, checkerVariableValidator])
-    if (arrayValidator.message() != ''):
-        return HttpResponse(arrayValidator.message())
-    '''
-    product         = Product.objects.get(id=product)
-    #pharmacy        = Pharmacy.objects.get(id=pharmacy)
-    #doctor          = Doctor.objects.get(id=doctor)
+	product = request.POST['product']
+	productCode = request.POST['productCode']
+	# pharmacy        = request.POST['pharmacy']
+	# doctor          = request.POST['doctor']
+	checker = request.POST['checker']
+	# cheakerName     = request.POST['checkerName']
+	'''
+	productVariableValidator         = VariableValidator(product, r'\W|^$', u'Error:* من فضلك تأكد من إختيار المنتج')
+	productCodeVariableValidator     = VariableValidator(productCode, r'\D|^$', u'Error:* من فضلك تأكد من ادخال كود المنتج بطريقة صحيح')
+	checkerVariableValidator         = VariableValidator(checker, r'^أ-ى|^$', u'Error:* من فضلك تاكد من إدخال إسمك بطريقة صحيحة')
 
-    postArray       = {'product'    : product,
-                       'pharmacy'   : pharmacy,
-                       'doctor'     : doctor
-                       }
-    #c = {'product': product}
-    #c.update(csrf(request))
-    #return render_to_response('anticounterfeit/result.html', c)
-    return render(request, 'anticounterfeit/result.html', postArray)
+	arrayValidator = ArrayValidator([productVariableValidator, productCodeVariableValidator, checkerVariableValidator])
+	if (arrayValidator.message() != ''):
+		return HttpResponse(arrayValidator.message())
+	'''
+	product = Product.objects.get(id=product)
+	# pharmacy        = Pharmacy.objects.get(id=pharmacy)
+	# doctor          = Doctor.objects.get(id=doctor)
+
+	postArray = {'product': product,
+	             'pharmacy': pharmacy,
+	             'doctor': doctor
+	             }
+	# c = {'product': product}
+	# c.update(csrf(request))
+	# return render_to_response('anticounterfeit/result.html', c)
+	return render(request, 'anticounterfeit/result.html', postArray)
