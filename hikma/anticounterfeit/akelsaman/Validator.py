@@ -56,18 +56,10 @@ class ValidatorsArray:
 				validatorInput = ""
 				validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
 			if(validatorMessage):
-				validatorMessage = \
-				"{{h1:: * Input\t: " + validatorsRulesKey + "::h1}}\n" +\
-				"{{h2:: * Value\t: " + validatorInput + "::h2}}\n" +\
-				validatorMessage
+				validatorMessage = "{{h1:: * Input\t: " + validatorsRulesKey + "::h1}}\n" + \
+				                   "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + \
+				                   validatorMessage
 				self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
-				'''
-		# complete the html table tags
-		if(self.validatorsArrayMessage):
-			self.validatorsArrayMessage = "<table class='validationTable'><thead></thead><tfoot></tfoot><tbody>" \
-			                              + self.validatorsArrayMessage \
-			                              + "\n\n</tbody></table>"
-			                              '''
 		if(self.validatorsArrayMessage): self.validatorsArrayMessage = self.htmlMessage(self.validatorsArrayMessage)
 		return self.validatorsArrayMessage
 
@@ -87,4 +79,7 @@ class ValidatorsArray:
 		validatorMessage = re.sub('::h2}}', '</th></tr>', validatorMessage)
 		validatorMessage = re.sub('{{MessageLine::', '\t<tr><td>', validatorMessage)
 		validatorMessage = re.sub('::MessageLine}}', '</td></tr>', validatorMessage)
+		validatorMessage = "<table class='validationTable'><thead></thead><tfoot></tfoot><tbody>" \
+		                              + validatorMessage \
+		                              + "\n\n</tbody></table>"
 		return validatorMessage
