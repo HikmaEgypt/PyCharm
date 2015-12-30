@@ -24,10 +24,17 @@ def check(request, QRCode=0):
 
 
 def addUniqueRandomNumbers(request):
-	if (request.POST):
+	if request.POST:
 		# return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html', {'postArray':request.POST})
 		va = ValidatorsArray(request.POST, UniqueRandomNumbersGroup)
-		return HttpResponse(va.runHTML())
+		vaHTML = va.runHTML()
+		if va.runHTML():
+			return HttpResponse(va.runHTML())
+		else:
+			return HttpResponse("Else is work")
+			#dict1 = UniqueRandomNumbersGroup.validatorsInputsDictionary()
+			#dict2 = UniqueRandomNumbersGroup._meta.get_fields()
+			#return HttpResponse(dict2)
 	else:
 		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html', )
 

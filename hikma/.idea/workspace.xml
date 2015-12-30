@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
               <folding>
                 <element signature="e#204#213#0" expanded="true" />
               </folding>
@@ -38,28 +38,40 @@
         <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="83" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
+              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
                 <element signature="e#152#561#0" expanded="false" />
                 <element signature="e#370#441#0" expanded="false" />
                 <element signature="e#542#561#0" expanded="false" />
-                <element signature="e#1882#2223#0" expanded="false" />
-                <element signature="e#2193#2223#0" expanded="false" />
-                <element signature="e#2254#2385#0" expanded="false" />
-                <element signature="e#2368#2385#0" expanded="false" />
-                <element signature="e#2415#2683#0" expanded="false" />
-                <element signature="e#2612#2628#0" expanded="false" />
-                <element signature="e#2645#2683#0" expanded="false" />
-                <element signature="e#2717#3042#0" expanded="false" />
-                <element signature="e#2920#2940#0" expanded="false" />
-                <element signature="e#2962#2984#0" expanded="false" />
-                <element signature="e#3001#3042#0" expanded="false" />
-                <element signature="e#3074#3391#0" expanded="false" />
-                <element signature="e#3273#3291#0" expanded="false" />
-                <element signature="e#3313#3335#0" expanded="false" />
-                <element signature="e#3352#3391#0" expanded="false" />
-                <element signature="e#3422#3962#0" expanded="false" />
+                <element signature="e#1881#2222#0" expanded="false" />
+                <element signature="e#2192#2222#0" expanded="false" />
+                <element signature="e#2253#2384#0" expanded="false" />
+                <element signature="e#2367#2384#0" expanded="false" />
+                <element signature="e#2414#2682#0" expanded="false" />
+                <element signature="e#2611#2627#0" expanded="false" />
+                <element signature="e#2644#2682#0" expanded="false" />
+                <element signature="e#2716#3041#0" expanded="false" />
+                <element signature="e#2919#2939#0" expanded="false" />
+                <element signature="e#2961#2983#0" expanded="false" />
+                <element signature="e#3000#3041#0" expanded="false" />
+                <element signature="e#3073#3390#0" expanded="false" />
+                <element signature="e#3272#3290#0" expanded="false" />
+                <element signature="e#3312#3334#0" expanded="false" />
+                <element signature="e#3351#3390#0" expanded="false" />
+                <element signature="e#3421#3961#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.456">
+              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+              <folding>
+                <element signature="e#25#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,20 +81,8 @@
         <entry file="file://$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48">
-              <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
-              <folding>
-                <element signature="e#25#70#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -131,10 +131,10 @@
         <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/validatorSettings.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/common/validatorSettings.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/validator/validatorSettings.js" />
-        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/models.py" />
-        <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/views.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js" />
       </list>
     </option>
   </component>
@@ -707,22 +707,22 @@
             <element signature="e#152#561#0" expanded="false" />
             <element signature="e#370#441#0" expanded="false" />
             <element signature="e#542#561#0" expanded="false" />
-            <element signature="e#1882#2223#0" expanded="false" />
-            <element signature="e#2193#2223#0" expanded="false" />
-            <element signature="e#2254#2385#0" expanded="false" />
-            <element signature="e#2368#2385#0" expanded="false" />
-            <element signature="e#2415#2683#0" expanded="false" />
-            <element signature="e#2612#2628#0" expanded="false" />
-            <element signature="e#2645#2683#0" expanded="false" />
-            <element signature="e#2717#3042#0" expanded="false" />
-            <element signature="e#2920#2940#0" expanded="false" />
-            <element signature="e#2962#2984#0" expanded="false" />
-            <element signature="e#3001#3042#0" expanded="false" />
-            <element signature="e#3074#3391#0" expanded="false" />
-            <element signature="e#3273#3291#0" expanded="false" />
-            <element signature="e#3313#3335#0" expanded="false" />
-            <element signature="e#3352#3391#0" expanded="false" />
-            <element signature="e#3422#3962#0" expanded="false" />
+            <element signature="e#1881#2222#0" expanded="false" />
+            <element signature="e#2192#2222#0" expanded="false" />
+            <element signature="e#2253#2384#0" expanded="false" />
+            <element signature="e#2367#2384#0" expanded="false" />
+            <element signature="e#2414#2682#0" expanded="false" />
+            <element signature="e#2611#2627#0" expanded="false" />
+            <element signature="e#2644#2682#0" expanded="false" />
+            <element signature="e#2716#3041#0" expanded="false" />
+            <element signature="e#2919#2939#0" expanded="false" />
+            <element signature="e#2961#2983#0" expanded="false" />
+            <element signature="e#3000#3041#0" expanded="false" />
+            <element signature="e#3073#3390#0" expanded="false" />
+            <element signature="e#3272#3290#0" expanded="false" />
+            <element signature="e#3312#3334#0" expanded="false" />
+            <element signature="e#3351#3390#0" expanded="false" />
+            <element signature="e#3421#3961#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -947,13 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/check-result/check-result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="76" selection-start-line="68" selection-start-column="76" selection-end-line="68" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1000,20 +993,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.44">
           <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/common/validatorSettings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/validator/validatorSettings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,10 +1020,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/common/validatorSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.002">
+          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/validator/validatorSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
             <element signature="e#204#213#0" expanded="true" />
           </folding>
@@ -1053,44 +1049,52 @@
     <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="83" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
+          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <element signature="e#152#561#0" expanded="false" />
             <element signature="e#370#441#0" expanded="false" />
             <element signature="e#542#561#0" expanded="false" />
-            <element signature="e#1882#2223#0" expanded="false" />
-            <element signature="e#2193#2223#0" expanded="false" />
-            <element signature="e#2254#2385#0" expanded="false" />
-            <element signature="e#2368#2385#0" expanded="false" />
-            <element signature="e#2415#2683#0" expanded="false" />
-            <element signature="e#2612#2628#0" expanded="false" />
-            <element signature="e#2645#2683#0" expanded="false" />
-            <element signature="e#2717#3042#0" expanded="false" />
-            <element signature="e#2920#2940#0" expanded="false" />
-            <element signature="e#2962#2984#0" expanded="false" />
-            <element signature="e#3001#3042#0" expanded="false" />
-            <element signature="e#3074#3391#0" expanded="false" />
-            <element signature="e#3273#3291#0" expanded="false" />
-            <element signature="e#3313#3335#0" expanded="false" />
-            <element signature="e#3352#3391#0" expanded="false" />
-            <element signature="e#3422#3962#0" expanded="false" />
+            <element signature="e#1881#2222#0" expanded="false" />
+            <element signature="e#2192#2222#0" expanded="false" />
+            <element signature="e#2253#2384#0" expanded="false" />
+            <element signature="e#2367#2384#0" expanded="false" />
+            <element signature="e#2414#2682#0" expanded="false" />
+            <element signature="e#2611#2627#0" expanded="false" />
+            <element signature="e#2644#2682#0" expanded="false" />
+            <element signature="e#2716#3041#0" expanded="false" />
+            <element signature="e#2919#2939#0" expanded="false" />
+            <element signature="e#2961#2983#0" expanded="false" />
+            <element signature="e#3000#3041#0" expanded="false" />
+            <element signature="e#3073#3390#0" expanded="false" />
+            <element signature="e#3272#3290#0" expanded="false" />
+            <element signature="e#3312#3334#0" expanded="false" />
+            <element signature="e#3351#3390#0" expanded="false" />
+            <element signature="e#3421#3961#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/check-result/check-result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13">
+          <caret line="55" column="118" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="118" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48">
-          <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.456">
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
           </folding>

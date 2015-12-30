@@ -16,6 +16,7 @@ class Validator:
 		self.validatorMessage = ""
 
 	def run(self):
+		self.validatorMessage = ""
 		for i in range(0, self.validatorsRulesLength - 1):
 			validatorPattern = validatorPatterns[self.validatorRules[i]]
 			validatorMessage = validatorMessages[self.validatorRules[i]]
@@ -56,6 +57,7 @@ class ValidatorsArray:
 		return self.validatorsArrayMessage
 
 	def run(self):
+		self.validatorsArrayMessage = ""
 		for validatorsInputsDictionaryKey in self.validatorsInputsDictionary:
 			try:
 				validatorInput = self.validatorsInputs[validatorsInputsDictionaryKey]

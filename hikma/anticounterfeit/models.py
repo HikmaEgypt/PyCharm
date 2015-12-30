@@ -37,7 +37,7 @@ class UniqueRandomNumbersGroup(models.Model):
 		validatorsInputsDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
 		validatorsInputsDictionary["batchNumber"] = "Empty,EnSmCpDg"
 		validatorsInputsDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
-		# validatorsInputsDictionary["active"]=""
+		#validatorsInputsDictionary["active"]=""
 
 		return validatorsInputsDictionary
 

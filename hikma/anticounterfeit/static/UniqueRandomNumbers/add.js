@@ -1,8 +1,12 @@
 $(document).ready(function(){
     $("select#product").load("/anticounterfeit/product/");
-    dt = new Date();
-    $("input[type=text]#dateAndTime").val(dt.getFullYear() + "." + (dt.getMonth() + 1) + "." + dt.getDate() + " "
-        + dt.getHours() + ":" + dt.getMinutes());
+    var dt  = new Date();
+    yyyy    = dt.getFullYear()
+    mm      = (dt.getMonth() + 1<10?"0" + dt.getMonth() + 1:dt.getMonth());
+    dd      = (dt.getDate()<10?"0" + dt.getDate():dt.getDate());
+    HH      = (dt.getHours()<10?"0" + dt.getHours():dt.getHours());
+    MM      = (dt.getMinutes()<10?"0" + dt.getMinutes():dt.getMinutes());
+    $("input[type=text]#dateAndTime").val(yyyy + "." + mm + "." + dd + " " + HH + ":" + MM);
 	$("input#add").click(addClick);
 	/*validatorCodeStart*/
 	validatorRun();
@@ -22,8 +26,8 @@ function addClick() {
     });
     //alert(postArray["URN-internalOrExternal"]);
     $.post("/anticounterfeit/UniqueRandomNumbers/add/", postArray, function(data, status){
-        if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='validation']").html(data); }
-        //alert(data)
+        //if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='validation']").html(data); }
+        alert(data)
         //alert("Status: " + status);
     });
 
