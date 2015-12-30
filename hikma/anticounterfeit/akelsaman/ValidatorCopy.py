@@ -21,7 +21,7 @@ class Validator:
 			validatorMessage = validatorMessages[self.validatorRules[i]]
 			searchObject = re.search(validatorPattern, self.validatorInput)
 			if (searchObject):
-				validatorMessage = "{{MessageLine::" + validatorMessage + "::MessageLine}}"
+				validatorMessage = "{{" + validatorMessage + "}}"
 				self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
 
 		# last rule is the rule of the accepted pattern
@@ -30,7 +30,7 @@ class Validator:
 		validatorMessage = validatorMessages[self.validatorRules[self.validatorsRulesLength - 1]]
 		searchObject = re.search(validatorPattern, self.validatorInput)
 		if not (searchObject):
-			validatorMessage = "{{MessageLine::" + validatorMessage + "::MessageLine}}"
+			validatorMessage = "{{" + validatorMessage + "}}"
 			self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
 
 		self.validatorMessage = re.sub('^\n', '', self.validatorMessage)
@@ -54,37 +54,29 @@ class ValidatorsArray:
 				validatorMessage = validator.run()
 			except (MultiValueDictKeyError):
 				validatorInput = ""
-				validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
+				validatorMessage = "{{Missing input}}"
 			if(validatorMessage):
-				validatorMessage = \
-				"{{h1:: * Input\t: " + validatorsRulesKey + "::h1}}\n" +\
-				"{{h2:: * Value\t: " + validatorInput + "::h2}}\n" +\
-				validatorMessage
+				validatorMessage = self.htmlMessage(validatorsRulesKey, validatorInput, validatorMessage)
 				self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
-				'''
 		# complete the html table tags
 		if(self.validatorsArrayMessage):
 			self.validatorsArrayMessage = "<table class='validationTable'><thead></thead><tfoot></tfoot><tbody>" \
 			                              + self.validatorsArrayMessage \
 			                              + "\n\n</tbody></table>"
-			                              '''
-		if(self.validatorsArrayMessage): self.validatorsArrayMessage = self.htmlMessage(self.validatorsArrayMessage)
 		return self.validatorsArrayMessage
 
-	def textMessage(self, validatorMessage):
-		validatorMessage = re.sub('{{h1::', '', validatorMessage)
-		validatorMessage = re.sub('::h1}}', '', validatorMessage)
-		validatorMessage = re.sub('{{h2::', '', validatorMessage)
-		validatorMessage = re.sub('::h2}}', '', validatorMessage)
-		validatorMessage = re.sub('{{MessageLine::', '\t>', validatorMessage)
-		validatorMessage = re.sub('::MessageLine}}', '', validatorMessage)
+	def textMessage(self, validatorsRulesKey, validatorInput, validatorMessage):
+		validatorMessage = re.sub('{{', '\t> ', validatorMessage)
+		validatorMessage = re.sub('}}', '', validatorMessage)
+		validatorMessage = " * Input\t: " + validatorsRulesKey + "\n" \
+		                   + " * Value\t: " + validatorInput + "\n" \
+		                   + validatorMessage
 		return validatorMessage
 
-	def htmlMessage(self, validatorMessage):
-		validatorMessage = re.sub('{{h1::', '\t<tr><th>', validatorMessage)
-		validatorMessage = re.sub('::h1}}', '</th></tr>', validatorMessage)
-		validatorMessage = re.sub('{{h2::', '\t<tr><th>', validatorMessage)
-		validatorMessage = re.sub('::h2}}', '</th></tr>', validatorMessage)
-		validatorMessage = re.sub('{{MessageLine::', '\t<tr><td>', validatorMessage)
-		validatorMessage = re.sub('::MessageLine}}', '</td></tr>', validatorMessage)
+	def htmlMessage(self, validatorsRulesKey, validatorInput, validatorMessage):
+		validatorMessage = re.sub('{{', '<tr><td>', validatorMessage)
+		validatorMessage = re.sub('}}', '</td></tr>', validatorMessage)
+		validatorMessage = "<tr><th> * Input : " + validatorsRulesKey + "</th></tr>\n" \
+		                   "<tr><th> * Value : " + validatorInput + "</th></tr>\n" \
+		                   + validatorMessage
 		return validatorMessage
