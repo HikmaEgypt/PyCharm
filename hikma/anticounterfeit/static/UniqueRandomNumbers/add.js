@@ -26,8 +26,8 @@ function addClick() {
     });
     //alert(postArray["URN-internalOrExternal"]);
     $.post("/anticounterfeit/UniqueRandomNumbers/add/", postArray, function(data, status){
-        //if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='validation']").html(data); }
-        alert(data)
+        if (new RegExp("^Error").test(data)) { alert(data); } else { $("[window='validation']").html(data); }
+        //alert(data)
         //alert("Status: " + status);
     });
 
