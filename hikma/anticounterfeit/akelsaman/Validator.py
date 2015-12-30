@@ -42,17 +42,21 @@ class ValidatorsArray:
 	def run(self):
 		for validatorsRulesKey in self.validatorsRulesDictionary:
 			# validators inputs names (=equal=) validators rules dictionary keys names
+			# MultiValueDictKeyError
 			validator = Validator(self.validatorsInputs[validatorsRulesKey],
 			                      self.validatorsRulesDictionary[validatorsRulesKey])
 			validatorMessage = validator.run()
-			if(validatorMessage):
-				validatorMessage = re.sub('\n', '\n\t > ', validatorMessage)
-				validatorMessage = " * Input\t:" + validatorsRulesKey + "\n" \
-				                   + " * Value\t:" + self.validatorsInputs[validatorsRulesKey] + "\n" \
-				                   + validatorMessage
-				self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
+		return textMessage(validatorMessage)
 
-		return self.validatorsArrayMessage
+	def textMesssage(self, validatorMessage):
+		if(validatorMessage):
+			validatorMessage = re.sub('\n', '\n\t > ', validatorMessage)
+			validatorMessage = " * Input\t:" + validatorsRulesKey + "\n" \
+			                   + " * Value\t:" + self.validatorsInputs[validatorsRulesKey] + "\n" \
+			                   + validatorMessage
+			self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
+
+			return self.validatorsArrayMessage
 
 	def runHTML(self):
 		for validatorsRulesKey in self.validatorsRulesDictionary:

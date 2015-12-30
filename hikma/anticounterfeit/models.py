@@ -36,7 +36,7 @@ class UniqueRandomNumbersGroup(models.Model):
 		validatorsRulesDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
 		validatorsRulesDictionary["internalOrExternal"]="Empty,internalOrExternal"
 		validatorsRulesDictionary["batchNumber"] = "Empty,EnSmCpDg"
-		validatorsRulesDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,YYYY.MM.DD HH:MM"
+		validatorsRulesDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
 		# validatorsRulesDictionary["active"]=""
 
 		return validatorsRulesDictionary
