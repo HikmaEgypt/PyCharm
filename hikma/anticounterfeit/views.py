@@ -42,7 +42,7 @@ def addUniqueRandomNumbers(request):
 		return HttpResponse(response)
 		'''
 		va = ValidatorsArray(request.POST, UniqueRandomNumbersGroup)
-		return HttpResponse(va.runHTML())
+		return HttpResponse(va.run())
 	else:
 		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html', )
 
