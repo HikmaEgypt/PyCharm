@@ -30,16 +30,16 @@ class UniqueRandomNumbersGroup(models.Model):
 	def __unicode__(self):
 		return self.id
 
-	def validatorsRulesDictionary(self):
-		validatorsRulesDictionary = collections.OrderedDict()
-		validatorsRulesDictionary["product"] = "Empty,Dg"
-		validatorsRulesDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
-		validatorsRulesDictionary["internalOrExternal"]="Empty,internalOrExternal"
-		validatorsRulesDictionary["batchNumber"] = "Empty,EnSmCpDg"
-		validatorsRulesDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
-		# validatorsRulesDictionary["active"]=""
+	def validatorsInputsDictionary(self):
+		validatorsInputsDictionary = collections.OrderedDict()
+		validatorsInputsDictionary["product"] = "Empty,Dg"
+		validatorsInputsDictionary["internalOrExternal"]="Empty,internalOrExternal"
+		validatorsInputsDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
+		validatorsInputsDictionary["batchNumber"] = "Empty,EnSmCpDg"
+		validatorsInputsDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
+		# validatorsInputsDictionary["active"]=""
 
-		return validatorsRulesDictionary
+		return validatorsInputsDictionary
 
 
 class UniqueRandomNumber(models.Model):
