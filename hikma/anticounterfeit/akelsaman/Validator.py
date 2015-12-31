@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # how to:
 #   ake = Validator(ANYVARIABLE, "Empty,Dshs,Spcs")
 #   print(ake.run())
