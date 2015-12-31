@@ -22,8 +22,8 @@ class Product(models.Model):
 
 class UniqueRandomNumbersGroup(models.Model):
 	product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
-	uniqueRandomNumbersCount = models.PositiveIntegerField('uniqueRandomNumbersCount', null=False, blank=False)
 	internalOrExternal = models.CharField('Internal Or External', null=False, blank=False, max_length=8)
+	uniqueRandomNumbersCount = models.PositiveIntegerField('uniqueRandomNumbersCount', null=False, blank=False)
 	batchNumber = models.PositiveSmallIntegerField('Batch Number', null=False, blank=False)
 	dateAndTime = models.DateTimeField('Date and Time', null=False, blank=False, unique=True)
 	active = models.BooleanField('Active', default=False, null=False, blank=False)
