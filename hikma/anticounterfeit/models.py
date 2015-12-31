@@ -1,4 +1,3 @@
-import datetime, collections
 from django.db import models
 from django.utils import timezone
 
@@ -30,17 +29,15 @@ class UniqueRandomNumbersGroup(models.Model):
 	def __unicode__(self):
 		return self.id
 
-	def validatorsInputsDictionary(self):
-		validatorsInputsDictionary = collections.OrderedDict()
-		validatorsInputsDictionary["product"] = "Empty,Dg"
-		validatorsInputsDictionary["internalOrExternal"]="Empty,internalOrExternal"
-		validatorsInputsDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
-		validatorsInputsDictionary["batchNumber"] = "Empty,EnSmCpDg"
-		validatorsInputsDictionary["dateAndTime"]="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
-		#validatorsInputsDictionary["active"]=""
+	def fieldsValidatorsRulesDictionary(self):
+		fieldsValidatorsRulesDictionary = {"product":"Empty,Dg",
+		                           "internalOrExternal":"Empty,internalOrExternal",
+		                           "uniqueRandomNumbersCount":"Empty,Dg",
+		                           "batchNumber":"Empty,EnSmCpDg",
+		                           "dateAndTime":"Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM",
+		                           }
 
-		return validatorsInputsDictionary
-
+		return fieldsValidatorsRulesDictionary
 
 class UniqueRandomNumber(models.Model):
 	uniqueRandomNumber = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)

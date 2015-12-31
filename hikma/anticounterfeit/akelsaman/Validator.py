@@ -5,7 +5,6 @@
 #   print(va.runHTML())
 
 import re
-from django.utils.datastructures import MultiValueDictKeyError
 from .validatorSettings import validatorPatterns, validatorMessages
 
 class Validator:
@@ -41,7 +40,8 @@ class ValidatorsArray:
 	def __init__(self, validatorsInputs, modelClass):
 		self.validatorsInputs = validatorsInputs
 		self.modelObject = modelClass()
-		self.validatorsInputsDictionary = self.modelObject.validatorsInputsDictionary()
+		self.modelObjectFieldsNames = self.modelObject._meta.get_fields()
+		self.fieldsValidatorsRulesDictionary = self.modelObject.fieldsValidatorsRulesDictionary()
 		self.validatorsArrayMessage = ""
 
 	def runText(self):
@@ -58,20 +58,24 @@ class ValidatorsArray:
 
 	def run(self):
 		self.validatorsArrayMessage = ""
-		for validatorsInputsDictionaryKey in self.validatorsInputsDictionary:
+		for key in range (1, self.modelObjectFieldsNames.__len__()):
+			fieldName = self.modelObjectFieldsNames[key].name
 			try:
-				validatorInput = self.validatorsInputs[validatorsInputsDictionaryKey]
-				validatorRules = self.validatorsInputsDictionary[validatorsInputsDictionaryKey]
-				validator = Validator(validatorInput,validatorRules)
-				validatorMessage = validator.run()
-			except (MultiValueDictKeyError):
-				validatorInput = ""
-				validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
-			if(validatorMessage):
-				validatorMessage = "{{h1:: * Input\t: " + validatorsInputsDictionaryKey + "::h1}}\n" + \
-				                   "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + \
-				                   validatorMessage
-				self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
+				validatorRules = self.fieldsValidatorsRulesDictionary[fieldName]
+				try:
+					validatorInput = self.validatorsInputs[fieldName]
+					validator = Validator(validatorInput,validatorRules)
+					validatorMessage = validator.run()
+				except KeyError:
+					validatorInput = ""
+					validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
+				if(validatorMessage):
+					validatorMessage = "{{h1:: * Input\t: " + fieldName + "::h1}}\n" + \
+					                   "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + \
+					                   validatorMessage
+					self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
+			except KeyError:
+				pass
 
 	def textMessage(self):
 		self.validatorsArrayMessage = re.sub('{{h1::', '', self.validatorsArrayMessage)

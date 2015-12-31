@@ -3,9 +3,9 @@
 from django.http import HttpResponse, Http404
 from django.template import RequestContext, loader
 from django.shortcuts import render, render_to_response, get_object_or_404, get_list_or_404
-from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbersGroup
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
+from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbersGroup
 from .akelsaman.Validator import Validator, ValidatorsArray
 
 
@@ -24,7 +24,7 @@ def check(request, QRCode=0):
 
 
 def addUniqueRandomNumbers(request):
-	s = ""
+	fieldName = ""
 	if request.POST:
 		# return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html', {'postArray':request.POST})
 		va = ValidatorsArray(request.POST, UniqueRandomNumbersGroup)
@@ -35,10 +35,13 @@ def addUniqueRandomNumbers(request):
 			#return HttpResponse("Else is work")
 			#dict1 = UniqueRandomNumbersGroup.validatorsInputsDictionary()s
 			dict2 = UniqueRandomNumbersGroup._meta.get_fields()
+			#dict3 = UniqueRandomNumbersGroup.__base__.__name__
+			#dict4 = UniqueRandomNumbersGroup.__name__
 
-			for k in (0, dict2.__len__() - 1):
-				s = s + str(dict2[k]) + "<br>"
-			return HttpResponse(s)
+			for k in range (2, dict2.__len__()):
+				fieldName = fieldName + dict2[k].name + "<br>"
+
+			return HttpResponse(fieldName)
 	else:
 		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html', )
 
