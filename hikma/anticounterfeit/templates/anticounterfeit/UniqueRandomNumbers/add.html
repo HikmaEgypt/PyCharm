@@ -12,38 +12,36 @@
 </head>
 <body>
     <div id="add" class="window">
-        <div class="form">
-            <form>
-                {% csrf_token %}
-                <div class="title"><label class="formTitle">Add unique random numbers</label></div>
-                <div class="inputs inputsBorder">
-                    <div class="input">
-                        <label class="title">ID</label>
-                        <select id="product" name="product"></select>
-                    </div>
-                    <div class="input">
-                        <label class="title">Internal Or External</label>
-                        <input type="radio" id="internalOrExternal" name="internalOrExternal" value="Internal"/>
-                        <span class="radio">Internal</span>
-                        <input type="radio" id="internalOrExternal" name="internalOrExternal" value="External"/>
-                        <span class="radio">External</span>
-                    </div>
-                    <div class="input">
-                        <label class="title">Unique Random Numbers Count</label>
-                        <input type="text" id="uniqueRandomNumbersCount" name="uniqueRandomNumbersCount" placeholder="Unique Random Number Count"/>
-                    </div>
-                    <div class="input">
-                        <label class="title">Batch Number</label>
-                        <input type="text" id="batchNumber" name="batchNumber" placeholder="Batch Number"/>
-                    </div>
-                    <div class="input">
-                        <label class="title">Date and Time</label>
-                        <input type="text" id="dateAndTime" name="dateAndTime" placeholder="Date And Time" disabled/>
-                    </div>
+        <form>
+            {% csrf_token %}
+            <div class="title"><label class="formTitle">Add unique random numbers</label></div>
+            <div class="inputs inputsBorder">
+                <div class="input">
+                    <label class="title">ID</label>
+                    <select id="product" name="product"></select>
                 </div>
-                <div class="input"><input type="button" id="add" value="+ Add"></div>
-            </form>
-        </div>
+                <div class="input">
+                    <label class="title">Internal Or External</label>
+                    <input type="radio" id="internalOrExternal" name="internalOrExternal" value="Internal"/>
+                    <span class="radio">Internal</span>
+                    <input type="radio" id="internalOrExternal" name="internalOrExternal" value="External"/>
+                    <span class="radio">External</span>
+                </div>
+                <div class="input">
+                    <label class="title">Unique Random Numbers Count</label>
+                    <input type="text" id="uniqueRandomNumbersCount" name="uniqueRandomNumbersCount" placeholder="Unique Random Number Count"/>
+                </div>
+                <div class="input">
+                    <label class="title">Batch Number</label>
+                    <input type="text" id="batchNumber" name="batchNumber" placeholder="Batch Number"/>
+                </div>
+                <div class="input">
+                    <label class="title">Date and Time</label>
+                    <input type="text" id="dateAndTime" name="dateAndTime" placeholder="Date And Time" disabled/>
+                </div>
+            </div>
+            <div class="input"><input type="button" id="add" value="+ Add"></div>
+        </form>
     </div>
     <div id="validation" class="window"></div>
 </div>
