@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 
+/* #CC3366 #CC00FF */
+
 table.validationTable {
     margin-left: auto;
     margin-right: auto;
@@ -12,7 +14,6 @@ table.validationTable {
 table.validationTable th {
     font-weight: bold;
     text-align: left;
-    #background-color: #CC3366;
     background-color: #000066;
     color: #FFFFFF;
 }
@@ -20,9 +21,7 @@ table.validationTable th {
 table.validationTable tr {
     font-weight: bold;
     text-align: left;
-    #background-color: #CC00FF;
     background-color: #CCCCFF;
-    #color: #FFFFFF;
     color: #000066;
 }
 
@@ -30,7 +29,6 @@ table.validationTable tr:hover {
     text-align: left;
     font-weight: bold;
     background-color: #CCFF99;
-    #background-color: #98FB98;
     color: #000000;
 }
 
@@ -63,7 +61,6 @@ div.input {
 div.inputsBorder {
     border: solid;
     border-width: 2px;
-    #border-color: #CC00FF;
     border-color: #CCCCFF;
 }
 
@@ -106,8 +103,6 @@ input[type=text]:focus, select:focus {
 
 input[type=text]:disabled, select:disabled {
     color: #666666;
-    #color: #5C3317;
-    #color: #5C4033;
 }
 
 label.formTitle {
@@ -121,7 +116,6 @@ label.formTitle {
     font-weight: bold;
     direction: ltr;
     text-align: center;
-    #background-color: #CC3366;
     background-color: #000066;
     color: #FFFFFF;
     box-shadow: none;
@@ -138,9 +132,7 @@ label.title {
     font-weight: bold;
     direction: ltr;
     text-align: left;
-    #background-color: #CC00FF;
     background-color: #CCCCFF;
-    #color: #FFFFFF;
     color: #000000;
     box-shadow: none;
 }
@@ -160,12 +152,10 @@ input[type=button] {
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 24px;
     font-weight: bold;
-    #background-color: #CC3366;
     background-color: #000066;
     color: #FFFFFF;
     border: solid;
     border-width: 2px;
-    #border-color: #CC3366;
     border-color: #000066;
     border-radius: 15px 5px 15px 5px;
     box-shadow: none;
