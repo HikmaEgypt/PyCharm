@@ -10,23 +10,27 @@ table.validationTable {
 }
 
 table.validationTable th {
-    color: #FFFFFF;
-    background-color: #000066;
     font-weight: bold;
     text-align: left;
+    background-color: #CC3366;
+    #background-color: #000066;
+    color: #FFFFFF;
 }
 
 table.validationTable tr {
+    font-weight: bold;
     text-align: left;
-    font-weight: normal;
-    color: #000000;
-    background-color: #EEEEFF;
+    background-color: #CC00FF;
+    #background-color: #CCCCFF;
+    color: #FFFFFF;
+    #color: #000066;
 }
 
 table.validationTable tr:hover {
     text-align: left;
-    font-weight: normal;
-    background-color: #98FB98;
+    font-weight: bold;
+    background-color: #CCFF99;
+    #background-color: #98FB98;
     color: #000000;
 }
 
@@ -41,14 +45,22 @@ div {
 div.form {
     background-color: #EEEEFF;
     color: #000000;
-    border: solid;
-    border-width: 2px;
-    border-color: #000066;
 }
 
 div.validator {
     direction: ltr;
     text-align: left;
+}
+
+div.input {
+    width:310px;
+    text-align: left;
+    background-color: #EEEEFF;
+    color: #000000;
+    border: solid;
+    border-width: 2px;
+    border-color: #CC00FF;
+    #border-color: #CCCCFF;
 }
 
 span.validator {
@@ -59,7 +71,7 @@ span.validator {
     color: #000000;
 }
 
-label, input[type=text], select {
+input[type=text], select {
     display: inline-block;
     height: 30px;
     width: 300px;
@@ -72,13 +84,40 @@ label, input[type=text], select {
     text-align: center;
 }
 
-label.title {
+label.formTitle {
+    display: inline-block;
+    height: 30px;
+    width: 314px;
+    margin: 0px;
+    line-height: 30px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px;
+    font-weight: bold;
+    direction: ltr;
     text-align: center;
-    background-color: #000066;
+    background-color: #CC3366;
+    #background-color: #000066;
     color: #FFFFFF;
 }
 
-span.label {
+label.title {
+    display: block;
+    height: 30px;
+    width: auto;
+    margin-left: 0px;
+    line-height: 30px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px;
+    font-weight: bold;
+    direction: ltr;
+    text-align: left;
+    background-color: #CC00FF;
+    #background-color: #CCCCFF;
+    color: #FFFFFF;
+    #color: #000000;
+}
+
+span.radio {
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px;
     font-weight: bold;

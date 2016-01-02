@@ -34,12 +34,12 @@ def addUniqueRandomNumbers(request):
 		else:
 			#return HttpResponse("Else is work")
 			#dict1 = UniqueRandomNumbersGroup.validatorsInputsDictionary()s
-			dict2 = UniqueRandomNumbersGroup._meta.get_fields()
+			fieldsDictionary = UniqueRandomNumbersGroup._meta.get_fields()
 			#dict3 = UniqueRandomNumbersGroup.__base__.__name__
 			#dict4 = UniqueRandomNumbersGroup.__name__
 
-			for k in range (2, dict2.__len__()):
-				fieldName = fieldName + dict2[k].name + "<br>"
+			for fieldKey in range (2, fieldsDictionary.__len__()):
+				fieldName = fieldName + fieldsDictionary[fieldKey].name + "<br>"
 
 			return HttpResponse(fieldName)
 	else:

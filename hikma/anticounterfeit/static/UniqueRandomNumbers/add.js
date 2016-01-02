@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("select#product").load("/anticounterfeit/product/");
     var dt  = new Date();
     yyyy    = dt.getFullYear()
-    mm      = (dt.getMonth() + 1<10?"0" + dt.getMonth() + 1:dt.getMonth());
+    mm      = ((dt.getMonth() + 1)<10?"0" + (dt.getMonth() + 1):(dt.getMonth() + 1));
     dd      = (dt.getDate()<10?"0" + dt.getDate():dt.getDate());
     HH      = (dt.getHours()<10?"0" + dt.getHours():dt.getHours());
     MM      = (dt.getMinutes()<10?"0" + dt.getMinutes():dt.getMinutes());

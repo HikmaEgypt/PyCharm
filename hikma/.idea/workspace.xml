@@ -21,12 +21,12 @@
     <favorites_list name="hikma" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
               <folding>
                 <element signature="e#25#70#0" expanded="true" />
               </folding>
@@ -34,14 +34,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Validator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py">
+      <file leaf-file-name="DjangoORM.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/DjangoORM.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <element signature="e#229#238#0" expanded="true" />
-              </folding>
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,8 +47,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3">
-              <caret line="24" column="104" selection-start-line="24" selection-start-column="104" selection-end-line="24" selection-end-column="104" />
+            <state vertical-scroll-proportion="0.36">
+              <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
               <folding>
                 <element signature="e#25#53#0" expanded="true" />
                 <element signature="e#148#557#0" expanded="false" />
@@ -111,20 +109,21 @@
         <option value="$PROJECT_DIR$/anticounterfeit/static/check-result/check-result.css" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/check-result/check-result.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/addCopy.css" />
-        <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/addCopy.html" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/common/validator.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/urls.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/addResult.html" />
         <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/__init__.py" />
-        <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.css" />
-        <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/add.html" />
-        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/validatorSettings.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/common/validatorSettings.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/validator/validatorSettings.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js" />
-        <option value="$PROJECT_DIR$/anticounterfeit/views.py" />
-        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/validatorSettings.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/models.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/DjangoORM.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/addCopy.html" />
+        <option value="$PROJECT_DIR$/anticounterfeit/views.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/add.html" />
+        <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.css" />
       </list>
     </option>
   </component>
@@ -215,8 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,12 +260,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="akelsaman" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anticounterfeit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hikma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hikma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anticounterfeit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anticounterfeit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UniqueRandomNumbers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hikma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hikma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anticounterfeit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hikma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hikma" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="anticounterfeit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UniqueRandomNumbers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,14 +348,14 @@
     <property name="last.edited.regexp" value="Sample Text" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/anticounterfeit/akelsaman" />
-      <recent name="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers" />
-      <recent name="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers" />
       <recent name="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers" />
+      <recent name="$PROJECT_DIR$/anticounterfeit/akelsaman" />
+      <recent name="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers" />
     </key>
   </component>
   <component name="RunManager">
@@ -499,7 +568,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="636" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -544,41 +613,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding>
-            <element signature="e#148#557#0" expanded="false" />
-            <element signature="e#366#437#0" expanded="false" />
-            <element signature="e#538#557#0" expanded="false" />
-            <element signature="e#1819#2160#0" expanded="false" />
-            <element signature="e#2130#2160#0" expanded="false" />
-            <element signature="e#2191#2322#0" expanded="false" />
-            <element signature="e#2305#2322#0" expanded="false" />
-            <element signature="e#2352#2620#0" expanded="false" />
-            <element signature="e#2549#2565#0" expanded="false" />
-            <element signature="e#2582#2620#0" expanded="false" />
-            <element signature="e#2654#2979#0" expanded="false" />
-            <element signature="e#2857#2877#0" expanded="false" />
-            <element signature="e#2899#2921#0" expanded="false" />
-            <element signature="e#2938#2979#0" expanded="false" />
-            <element signature="e#3011#3328#0" expanded="false" />
-            <element signature="e#3210#3228#0" expanded="false" />
-            <element signature="e#3250#3272#0" expanded="false" />
-            <element signature="e#3289#3328#0" expanded="false" />
-            <element signature="e#3359#3899#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -834,32 +868,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031512607">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/static/validator/validator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.44">
           <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/validatorSettings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85084033">
-          <caret line="27" column="122" selection-start-line="27" selection-start-column="122" selection-end-line="27" selection-end-column="122" />
         </state>
       </provider>
     </entry>
@@ -893,35 +905,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.18">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/DjangoORM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/validatorSettings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="108" selection-start-line="20" selection-start-column="108" selection-end-line="20" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="68" column="66" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
           <folding>
             <element signature="e#229#238#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15546219">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65756303">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3">
-          <caret line="24" column="104" selection-start-line="24" selection-start-column="104" selection-end-line="24" selection-end-column="104" />
+        <state vertical-scroll-proportion="0.36">
+          <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
           <folding>
             <element signature="e#25#53#0" expanded="true" />
             <element signature="e#148#557#0" expanded="false" />
