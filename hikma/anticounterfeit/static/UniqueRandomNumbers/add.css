@@ -12,18 +12,18 @@ table.validationTable {
 table.validationTable th {
     font-weight: bold;
     text-align: left;
-    background-color: #CC3366;
-    #background-color: #000066;
+    #background-color: #CC3366;
+    background-color: #000066;
     color: #FFFFFF;
 }
 
 table.validationTable tr {
     font-weight: bold;
     text-align: left;
-    background-color: #CC00FF;
-    #background-color: #CCCCFF;
-    color: #FFFFFF;
-    #color: #000066;
+    #background-color: #CC00FF;
+    background-color: #CCCCFF;
+    #color: #FFFFFF;
+    color: #000066;
 }
 
 table.validationTable tr:hover {
@@ -35,32 +35,41 @@ table.validationTable tr:hover {
 }
 
 div {
-    height: auto;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    margin: auto auto;
     text-align: center;
-}
-
-div.form {
     background-color: #EEEEFF;
     color: #000000;
+}
+
+div.window {
+    background-color: #EEEEFF;
+    color: #000000;
+    border-radius: 15px;
+}
+
+div.title {
+    width: 314px;
+}
+
+div.inputs {
+    width:310px;
+}
+
+div.input {
+    width: 310px;
+}
+
+div.inputsBorder {
+    border: solid;
+    border-width: 2px;
+    #border-color: #CC00FF;
+    border-color: #CCCCFF;
 }
 
 div.validator {
     direction: ltr;
     text-align: left;
-}
-
-div.input {
-    width:310px;
-    text-align: left;
-    background-color: #EEEEFF;
-    color: #000000;
-    border: solid;
-    border-width: 2px;
-    border-color: #CC00FF;
-    #border-color: #CCCCFF;
 }
 
 span.validator {
@@ -72,7 +81,7 @@ span.validator {
 }
 
 input[type=text], select {
-    display: inline-block;
+    display: block;
     height: 30px;
     width: 300px;
     margin: 5px;
@@ -80,12 +89,29 @@ input[type=text], select {
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px;
     font-weight: bold;
-    direction: ltr;
+    direction: rtl;
     text-align: center;
+    background-color: #FFFFFF;
+    color: #000000;
+    border: solid;
+    border-width: 1px;
+    border-color: #CCCCFF;
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+
+input[type=text]:focus, select:focus {
+    border-color: #0000FF;
+}
+
+input[type=text]:disabled, select:disabled {
+    color: #666666;
+    #color: #5C3317;
+    #color: #5C4033;
 }
 
 label.formTitle {
-    display: inline-block;
+    display: block;
     height: 30px;
     width: 314px;
     margin: 0px;
@@ -95,9 +121,10 @@ label.formTitle {
     font-weight: bold;
     direction: ltr;
     text-align: center;
-    background-color: #CC3366;
-    #background-color: #000066;
+    #background-color: #CC3366;
+    background-color: #000066;
     color: #FFFFFF;
+    box-shadow: none;
 }
 
 label.title {
@@ -111,10 +138,11 @@ label.title {
     font-weight: bold;
     direction: ltr;
     text-align: left;
-    background-color: #CC00FF;
-    #background-color: #CCCCFF;
-    color: #FFFFFF;
-    #color: #000000;
+    #background-color: #CC00FF;
+    background-color: #CCCCFF;
+    #color: #FFFFFF;
+    color: #000000;
+    box-shadow: none;
 }
 
 span.radio {
@@ -126,11 +154,25 @@ span.radio {
 input[type=button] {
     display: inline-block;
     height: 30px;
+    width: 100px;
     margin: 5px;
     line-height: 30px;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
+    #background-color: #CC3366;
+    background-color: #000066;
+    color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    #border-color: #CC3366;
+    border-color: #000066;
+    border-radius: 15px 5px 15px 5px;
+    box-shadow: none;
+}
+
+input[type=button]:hover {
+    font-size: 24px;
     background-color: #FFFFFF;
-    color: #000000;
+    color: #000066;
 }
