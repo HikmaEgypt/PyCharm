@@ -28,6 +28,8 @@ class UniqueRandomNumbersGroup(models.Model):
 	dateAndTime = models.DateTimeField('Date and Time', null=False, blank=False, unique=True)
 	active = models.BooleanField('Active', default=False, null=False, blank=False)
 
+
+
 	def __unicode__(self):
 		return self.id
 
