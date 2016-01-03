@@ -7,6 +7,8 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbersGroup
 from .akelsaman.Validator import Validator, ValidatorsArray
+from .akelsaman.DjangoORM import DjangoORM
+from .akelsaman.DateTimeObject import DateTimeObject
 
 
 # Create your views here.
@@ -38,10 +40,33 @@ def addUniqueRandomNumbers(request):
 			#dict3 = UniqueRandomNumbersGroup.__base__.__name__
 			#dict4 = UniqueRandomNumbersGroup.__name__
 
+			#dorm = DjangoORM(UniqueRandomNumbersGroup)
+			#dorm.insert(request.POST)
+
 			for fieldKey in range (2, fieldsDictionary.__len__()):
 				fieldName = fieldName + fieldsDictionary[fieldKey].name + "<br>"
 
-			return HttpResponse(fieldName)
+			productInstance = Product.objects.get(id=request.POST["product"])
+			urn = UniqueRandomNumbersGroup()
+			urn.product = productInstance
+			urn.internalOrExternal = request.POST["internalOrExternal"]
+			urn.uniqueRandomNumbersCount = request.POST["uniqueRandomNumbersCount"]
+			urn.batchNumber = request.POST["batchNumber"]
+
+			dt = DateTimeObject()
+			urn.dateAndTime = dt.getDateTimeObject(request.POST["dateAndTime"])
+			urn.active = False
+			try:
+				urn.save()
+			except Exception as e:
+				result = str(e)
+
+			if (urn.pk):
+				result = "Has been saved successfully, ID# " + str(urn.pk)
+
+			response = fieldName + "<br>" + result
+
+			return HttpResponse(response)
 	else:
 		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html', )
 

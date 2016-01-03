@@ -64,10 +64,11 @@ input[type=button]:hover {
 }
 /******************************************************************************/
 label {
-    display: block; margin: 0px; line-height: 30px; height: 30px; width: auto;
+    display: block; margin: auto auto; line-height: 30px; height: 30px; width: auto;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align: left; vertical-align: middle;
-    background-color: inherit; color: #000000; border-radius: 0px 0px 0px 0px;
+    background-color: inherit; color: #000000;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
     box-shadow: none;
 }
 label.formTitle {
@@ -81,7 +82,7 @@ label.title {
 }
 /******************************************************************************/
 span {
-    display: inline; margin: 0px; line-height: 30px; height: 30px; width: auto;
+    display: inline; margin: auto auto; line-height: 30px; height: 30px; width: auto;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
     background-color: inherit; color: #000000;
