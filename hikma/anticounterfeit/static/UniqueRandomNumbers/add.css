@@ -26,6 +26,7 @@ div.window {
     border-radius: 15px;
 }
 div.title { width: 314px; }
+div.output { width: 314px; text-align: left; }
 div.inputs { width:310px; }
 div.input { width: 310px; }
 div.inputsBorder { border: solid; border-width: 2px; border-color: #CCCCFF; }
@@ -86,8 +87,13 @@ span {
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
     background-color: inherit; color: #000000;
-    border: solid; border-width: 1px; border-color: #CCCCFF; border-radius: 0px 0px 0px 0px;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
     box-shadow: none;
+}
+span.output {
+    line-height: normal; height: auto;
+    font-size: 14px; font-weight: bold;
+    background-color: #FF0000; color: #FFDF00;
 }
 /******************************************************************************/
 div.validator { direction: ltr; text-align: left; }

@@ -25,8 +25,14 @@ function addClick() {
         }
     });
     //alert(postArray["URN-internalOrExternal"]);
-    $.post("/anticounterfeit/UniqueRandomNumbers/add/", postArray, function(data, status){
-        if (new RegExp("^Error").test(data)) { alert(data); } else { $("#validation").html(data); }
+    $.post("/anticounterfeit/urn/add/", postArray, function(data, status){
+        if (new RegExp("^Error:").test(data)) {
+            var myWindow = window.open("", "Add Unique Random Numbers Validator", "width=400, height=300, scrollbars=yes, resizable=no");
+            data = data.replace(/Error:/, "");
+            myWindow.document.write(data);
+        }
+        else { $("#output").html(data);
+        }
         //alert(data)
         //alert("Status: " + status);
     });

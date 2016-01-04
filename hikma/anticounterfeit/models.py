@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from .akelsaman.DateTimeObject import DateTimeObject
 from django.utils import timezone
 
 
@@ -20,7 +21,7 @@ class Product(models.Model):
 		return self.product
 
 
-class UniqueRandomNumbersGroup(models.Model):
+class UniqueRandomNumbers(models.Model):
 	product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
 	internalOrExternal = models.CharField('Internal Or External', null=False, blank=False, max_length=8)
 	uniqueRandomNumbersCount = models.PositiveIntegerField('uniqueRandomNumbersCount', null=False, blank=False)
@@ -42,9 +43,38 @@ class UniqueRandomNumbersGroup(models.Model):
 
 		return fieldsValidatorsRulesDictionary
 
+	def insert(self, inputs):
+		productInstance = Product.objects.get(id=inputs["product"])
+		self.product = productInstance
+		self.internalOrExternal = inputs["internalOrExternal"]
+		self.uniqueRandomNumbersCount = inputs["uniqueRandomNumbersCount"]
+		self.batchNumber = inputs["batchNumber"]
+
+		dt = DateTimeObject()
+		self.dateAndTime = dt.getDateTimeObject(inputs["dateAndTime"])
+		self.active = False
+		try:
+			self.save()
+			if self.pk:
+				result = "Has been saved successfully, ID# " + str(self.pk)
+		except Exception as e:
+			result = str(e)
+
+		return result
+
+	def select(self, id):
+		outputs = []
+		outputs["id"] = self.id
+		outputs["product"] = self.product.product
+		outputs["internalOrExternal"] = self.internalOrExternal
+		outputs["uniqueRandomNumbersCount"] = self.uniqueRandomNumbersCount
+		outputs["batchNumber"] = self.batchNumber
+		outputs["dataAndTime"] = self.dateAndTime
+		return outputs
+
 class UniqueRandomNumber(models.Model):
 	uniqueRandomNumber = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)
-	uniqueRandomNumbersGroup = models.ForeignKey(UniqueRandomNumbersGroup, null=False, blank=False,
+	uniqueRandomNumbers = models.ForeignKey(UniqueRandomNumbers, null=False, blank=False,
 	                                             on_delete=models.PROTECT)
 
 	def __unicode__(self):

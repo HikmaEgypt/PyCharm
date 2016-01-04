@@ -5,10 +5,8 @@ from django.template import RequestContext, loader
 from django.shortcuts import render, render_to_response, get_object_or_404, get_list_or_404
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
-from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbersGroup
+from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbers
 from .akelsaman.Validator import Validator, ValidatorsArray
-from .akelsaman.DjangoORM import DjangoORM
-from .akelsaman.DateTimeObject import DateTimeObject
 
 
 # Create your views here.
@@ -25,51 +23,22 @@ def check(request, QRCode=0):
 	return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
 
 
-def addUniqueRandomNumbers(request):
+def uniqueRandomNumbersAdd(request):
 	fieldName = ""
 	if request.POST:
-		# return render(request, 'anticounterfeit/UniqueRandomNumbers/addResult.html', {'postArray':request.POST})
-		va = ValidatorsArray(request.POST, UniqueRandomNumbersGroup)
+		va = ValidatorsArray(request.POST, UniqueRandomNumbers)
 		vaHTML = va.runHTML()
 		if vaHTML:
 			return HttpResponse(vaHTML)
 		else:
-			#return HttpResponse("Else is work")
-			#dict1 = UniqueRandomNumbersGroup.validatorsInputsDictionary()s
-			fieldsDictionary = UniqueRandomNumbersGroup._meta.get_fields()
-			#dict3 = UniqueRandomNumbersGroup.__base__.__name__
-			#dict4 = UniqueRandomNumbersGroup.__name__
-
-			#dorm = DjangoORM(UniqueRandomNumbersGroup)
-			#dorm.insert(request.POST)
-
-			for fieldKey in range (2, fieldsDictionary.__len__()):
-				fieldName = fieldName + fieldsDictionary[fieldKey].name + "<br>"
-
-			productInstance = Product.objects.get(id=request.POST["product"])
-			urn = UniqueRandomNumbersGroup()
-			urn.product = productInstance
-			urn.internalOrExternal = request.POST["internalOrExternal"]
-			urn.uniqueRandomNumbersCount = request.POST["uniqueRandomNumbersCount"]
-			urn.batchNumber = request.POST["batchNumber"]
-
-			dt = DateTimeObject()
-			urn.dateAndTime = dt.getDateTimeObject(request.POST["dateAndTime"])
-			urn.active = False
-			try:
-				urn.save()
-			except Exception as e:
-				result = str(e)
-
-			if (urn.pk):
-				result = "Has been saved successfully, ID# " + str(urn.pk)
-
-			response = fieldName + "<br>" + result
-
+			uniqueRandomNumbers = UniqueRandomNumbers()
+			response = uniqueRandomNumbers.insert(request.POST)
 			return HttpResponse(response)
 	else:
 		return render(request, 'anticounterfeit/UniqueRandomNumbers/add.html', )
 
+def uniqueRandomNumbersEdit(request, urn=0):
+	pass
 
 def product(request):
 	products = Product.objects.all()

@@ -42,6 +42,7 @@ class ValidatorsArray:
 	def __init__(self, validatorsInputs, modelClass):
 		self.validatorsInputs = validatorsInputs
 		self.modelObject = modelClass()
+		# UniqueRandomNumbersGroup.__name__ # UniqueRandomNumbersGroup.__base__.__name__
 		self.modelObjectFieldsNames = self.modelObject._meta.get_fields()
 		self.fieldsValidatorsRulesDictionary = self.modelObject.fieldsValidatorsRulesDictionary()
 		self.validatorsArrayMessage = ""
@@ -97,3 +98,16 @@ class ValidatorsArray:
 		self.validatorsArrayMessage = "<table class='validationTable'><thead></thead><tfoot></tfoot><tbody>" \
 		                              + self.validatorsArrayMessage \
 		                              + "\n\n</tbody></table>"
+
+		self.validatorsArrayMessage = '''Error:
+		<html>
+			<head>
+				<title>Add Unique Random Numbers Validator</title>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<LINK REL=StyleSheet HREF="/static/UniqueRandomNumbers/add.css" TYPE="text/css">
+			</head>
+			<body>
+		''' + self.validatorsArrayMessage + '''
+			</body>
+		</html>'''
