@@ -75,9 +75,15 @@ class UniqueRandomNumbers(models.Model):
 		outputs["dataAndTime"] = self.dateAndTime
 		return outputs
 
-	def getHTMLRow(self):
-		outputs = self.select()
 
+
+	def getHTMLRow(self, htmlTable):
+		outputs = self.select()
+		tdList = []
+		for key in outputs:
+			tdList.append(outputs[key])
+		htmlTable.getRow(tdList)
+		return htmlTable
 
 class UniqueRandomNumber(models.Model):
 	uniqueRandomNumber = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)

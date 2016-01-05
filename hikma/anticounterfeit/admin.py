@@ -1,86 +1,108 @@
 from django.contrib import admin
 
 from .models import Product, UniqueRandomNumbers, State, City, Pharmacy, Doctor
+
 # Register your models here.
-#===============================================================================
+# ===============================================================================
 '''
 class CityInline(admin.TabularInline):      #StackedInline
     model = City
     extra = 5
-'''    
-#===============================================================================
+'''
+
+
+# ===============================================================================
 class ProductAdmin(admin.ModelAdmin):
-    fieldsets = [
-                 ("Product",        {'fields': ['product', 'image', 'image_thumb']}),
-                 #("Image",          {'fields': ['image']}),
-                 #("Product Image",  {'fields': ['image_thumb']}),
-                 ]
-    
-    list_display    = ['product', 'image_thumb']
-    readonly_fields = ['image_thumb',]
-    list_filter     = ['product']
-    search_fields   = ['product']
-    
+	fieldsets = [
+		("Product", {'fields': ['product', 'image', 'image_thumb']}),
+		# ("Image",          {'fields': ['image']}),
+		# ("Product Image",  {'fields': ['image_thumb']}),
+	]
+
+	list_display = ['product', 'image_thumb']
+	readonly_fields = ['image_thumb', ]
+	list_filter = ['product']
+	search_fields = ['product']
+
 
 admin.site.register(Product, ProductAdmin)
-#===============================================================================
+
+
+# ===============================================================================
 class UniqueRandomNumbersAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ("uniqueRandomNumbersGroup", {'fields': ['product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']}),
-    ]
+	list_per_page = 5
+	fieldsets = [
+		("uniqueRandomNumbers",
+		 {'fields': ['product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']}),
+	]
+
+	list_display = ['id', 'product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']
+	list_filter = ['id', 'product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']
+	search_fields = ['id', 'product__product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']
+
 admin.site.register(UniqueRandomNumbers, UniqueRandomNumbersAdmin)
-#===============================================================================
+
+
+# ===============================================================================
 class StateAdmin(admin.ModelAdmin):
-    fieldsets = [
-                 ("State",          {'fields': ['state']}),
-                 ]
-    
-    #inlines = [CityInline]
-    list_display    = ['state']
-    list_filter     = ['state']
-    search_fields   = ['state']
-    
+	fieldsets = [
+		("State", {'fields': ['state']}),
+	]
+
+	# inlines = [CityInline]
+	list_display = ['state']
+	list_filter = ['state']
+	search_fields = ['state']
+
 
 admin.site.register(State, StateAdmin)
-#===============================================================================
-class CityAdmin(admin.ModelAdmin):
-    fieldsets = [
-                 ("City",           {'fields': ['city', 'state']}),
-                 ]
 
-    list_display    = ['city', 'state']
-    list_filter     = ['city', 'state']
-    search_fields   = ['city', 'state__state']
-    
+
+# ===============================================================================
+class CityAdmin(admin.ModelAdmin):
+	list_per_page = 3
+
+	fieldsets = [
+		("City", {'fields': ['city', 'state']}),
+	]
+
+	list_display = ['city', 'state']
+	list_filter = ['city', 'state']
+	search_fields = ['city', 'state__state']
+
 
 admin.site.register(City, CityAdmin)
-#===============================================================================
-class PharmacyAdmin(admin.ModelAdmin):
-    fieldsets = [
-                 ("Pharmacy",       {'fields': ['pharmacy', 'city', 'state']}),
-                 ]
 
-    list_display    = ['pharmacy', 'city', 'state']
-    readonly_fields = ['state']
-    list_filter     = ['pharmacy', 'city__city', 'city__state__state']
-    search_fields   = ['pharmacy', 'city__city', 'city__state__state']
-    
+
+# ===============================================================================
+class PharmacyAdmin(admin.ModelAdmin):
+	fieldsets = [
+		("Pharmacy", {'fields': ['pharmacy', 'city', 'state']}),
+	]
+
+	list_display = ['pharmacy', 'city', 'state']
+	readonly_fields = ['state']
+	list_filter = ['pharmacy', 'city__city', 'city__state__state']
+	search_fields = ['pharmacy', 'city__city', 'city__state__state']
+
 
 admin.site.register(Pharmacy, PharmacyAdmin)
-#===============================================================================
+
+
+# ===============================================================================
 class DoctorAdmin(admin.ModelAdmin):
-    fieldsets = [
-                 ("doctor",         {'fields': ['doctor', 'city', 'state']}),
-                 ]
-    
-    list_display    = ['doctor', 'city', 'state']
-    readonly_fields = ['state']
-    list_filter     = ['doctor', 'city__city', 'city__state__state']
-    search_fields   = ['doctor', 'city__city', 'city__state__state']
-    
+	fieldsets = [
+		("doctor", {'fields': ['doctor', 'city', 'state']}),
+	]
+
+	list_display = ['doctor', 'city', 'state']
+	readonly_fields = ['state']
+	list_filter = ['doctor', 'city__city', 'city__state__state']
+	search_fields = ['doctor', 'city__city', 'city__state__state']
+
 
 admin.site.register(Doctor, DoctorAdmin)
-#===============================================================================
+# ===============================================================================
 '''
 from django.contrib.admin.models import LogEntry, DELETION
 from django.utils.html import escape
@@ -142,4 +164,4 @@ class LogEntryAdmin(admin.ModelAdmin):
 
 admin.site.register(LogEntry, LogEntryAdmin)
 '''
-#===============================================================================
+# ===============================================================================
