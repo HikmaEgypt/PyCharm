@@ -8,7 +8,6 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbers
 from .akelsaman.Validator import Validator, ValidatorsArray
 
-
 # Create your views here.
 @ensure_csrf_cookie  # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
 def index(request):
@@ -22,6 +21,11 @@ def check(request, QRCode=0):
 	# return render_to_response('anticounterfeit/check.html', c)
 	return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
 
+
+def uniqueRandomNumbers(request):
+	uniqueRandomNumbers = UniqueRandomNumbers.objects.all()
+
+	return HttpResponse("Unique Random Numbers")
 
 def uniqueRandomNumbersAdd(request):
 	fieldName = ""

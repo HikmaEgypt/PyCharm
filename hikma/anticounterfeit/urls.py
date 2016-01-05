@@ -9,8 +9,10 @@ urlpatterns = [
                # ex: /anticounterfeit/check/5463192
                url(r'^(check/|check/(?P<QRCode>[0-9a-zA-Z]+))$', views.check, name='check'),
                # ex: /anticounterfeit/urn/add
-               url(r'^urn/add/$', views.uniqueRandomNumbersAdd, name='uniqueRandomNumbersAdd'),
+               url(r'^urn$', views.uniqueRandomNumbers, name='uniqueRandomNumbers'),
                # ex: /anticounterfeit/urn/add
+               url(r'^urn/add/$', views.uniqueRandomNumbersAdd, name='uniqueRandomNumbersAdd'),
+               # ex: /anticounterfeit/urn/edit
                url(r'^urn/edit/$', views.uniqueRandomNumbersEdit, name='uniqueRandomNumbersEdit'),
                # ex: /anticounterfeit/product/
                url(r'^product/$', views.product, name='product'),

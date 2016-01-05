@@ -27,7 +27,7 @@ function addClick() {
     //alert(postArray["URN-internalOrExternal"]);
     $.post("/anticounterfeit/urn/add/", postArray, function(data, status){
         if (new RegExp("^Error:").test(data)) {
-            var myWindow = window.open("", "Add Unique Random Numbers Validator", "width=400, height=300, scrollbars=yes, resizable=no");
+            var myWindow = window.open("", "Add Unique Random Numbers Validator", "width=400, height=300, scrollbars=yes");
             data = data.replace(/Error:/, "");
             myWindow.document.write(data);
         }

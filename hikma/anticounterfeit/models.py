@@ -2,6 +2,7 @@
 
 from django.db import models
 from .akelsaman.DateTimeObject import DateTimeObject
+from collections import OrderedDict
 from django.utils import timezone
 
 
@@ -34,12 +35,14 @@ class UniqueRandomNumbers(models.Model):
 		return str(self.id)
 
 	def fieldsValidatorsRulesDictionary(self):
-		fieldsValidatorsRulesDictionary = {"product":"Empty,Dg",
-		                           "internalOrExternal":"Empty,internalOrExternal",
-		                           "uniqueRandomNumbersCount":"Empty,Dg",
-		                           "batchNumber":"Empty,EnSmCpDg",
-		                           "dateAndTime":"Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM",
-		                           }
+		fieldsValidatorsRulesDictionary = OrderedDict()
+		fieldsValidatorsRulesDictionary["id"] = ""
+		fieldsValidatorsRulesDictionary["product"] = "Empty,Dg"
+		fieldsValidatorsRulesDictionary["internalOrExternal"] = "Empty,internalOrExternal"
+		fieldsValidatorsRulesDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
+		fieldsValidatorsRulesDictionary["batchNumber"] = "Empty,EnSmCpDg"
+		fieldsValidatorsRulesDictionary["dateAndTime"] = "Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
+		fieldsValidatorsRulesDictionary["active"] = ""
 
 		return fieldsValidatorsRulesDictionary
 
@@ -62,8 +65,8 @@ class UniqueRandomNumbers(models.Model):
 
 		return result
 
-	def select(self, id):
-		outputs = []
+	def select(self):
+		outputs = OrderedDict()
 		outputs["id"] = self.id
 		outputs["product"] = self.product.product
 		outputs["internalOrExternal"] = self.internalOrExternal
@@ -71,6 +74,10 @@ class UniqueRandomNumbers(models.Model):
 		outputs["batchNumber"] = self.batchNumber
 		outputs["dataAndTime"] = self.dateAndTime
 		return outputs
+
+	def getHTMLRow(self):
+		outputs = self.select()
+
 
 class UniqueRandomNumber(models.Model):
 	uniqueRandomNumber = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)

@@ -61,14 +61,14 @@ class ValidatorsArray:
 
 	def run(self):
 		self.validatorsArrayMessage = ""
-		for key in range (1, self.modelObjectFieldsNames.__len__()):
-			fieldName = self.modelObjectFieldsNames[key].name
-			try:
+		for fieldName in self.fieldsValidatorsRulesDictionary:
+			if self.fieldsValidatorsRulesDictionary[fieldName] is not "":
 				validatorRules = self.fieldsValidatorsRulesDictionary[fieldName]
 				try:
 					validatorInput = self.validatorsInputs[fieldName]
 					validator = Validator(validatorInput,validatorRules)
 					validatorMessage = validator.run()
+				# if you are using MultiValueDictKeyError, from django.utils.datastructures import MultiValueDictKeyError
 				except KeyError:
 					validatorInput = ""
 					validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
@@ -77,8 +77,6 @@ class ValidatorsArray:
 					                   "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + \
 					                   validatorMessage
 					self.validatorsArrayMessage = self.validatorsArrayMessage + "\n\n" + validatorMessage
-			except KeyError:
-				pass
 
 	def textMessage(self):
 		self.validatorsArrayMessage = re.sub('{{h1::', '', self.validatorsArrayMessage)
