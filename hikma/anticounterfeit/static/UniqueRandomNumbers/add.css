@@ -52,21 +52,24 @@ div {
     display: block; margin: auto auto; line-height: auto; height: auto; width: auto;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
-    background-color: #EEEEFF; color: #000000;
+    background-color: transparent; color: #000000;
     border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
     box-shadow: none;
 }
-div.window { border-radius: 15px; }
+div.window { background-color: #EEEEFF; color: #000000; border-radius: 15px; }
 div.title { width: 314px; }
 div.output { width: 314px; text-align: left; }
 div.inputs { width:310px; }
 div.input { width: 310px; }
 div.inputsBorder { border: solid; border-width: 2px; border-color: #CCCCFF; }
-div.tableHeader { width: 650px; }
+div.tableColumns { width: 650px; }
 div.tableRows { height: 100px; width: 650px; overflow-y: scroll; }
+div.filterWidget { width: 150px; position: relative; background-color: transparent; }
+div.filters { position: relative; top: 10px; left: 0px; right: 0px; height:30px; background-color: transparent; }
+div.selectWidget { position: relative; top: 0px; left: 0px; right: 0px; height:150px; background-color: #009900; overflow-y: scroll; }
 /******************************************************************************/
 input[type=text], select {
-    display: block; margin: 5px; line-height: 30px; height: 30px; width: 300px;
+    display: block; margin: 5px; padding: 0px; line-height: 30px; height: 30px; width: 300px;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
     background-color: #FFFFFF; color: #000000;
@@ -75,6 +78,15 @@ input[type=text], select {
 }
 input[type=text]:focus, select:focus { border-color: #0000FF; }
 input[type=text]:disabled, select:disabled { color: #666666; }
+
+div.filterWidget input[type=text], div.filterWidget select {
+	margin: 0px; padding: 0px; line-height: 20px; height: 20px; width: 150px;
+    font-family: "calibri", "verdana", "sans-serif";
+	font-size: 12px;
+	border: none; border-width: 0px; border-color: #FFFFFF;
+}
+div.filterWidget input[type=text]:focus, div.filterWidget select:focus { border: solid; border-width: 1px; border-color: #00FF00; }
+
 
 input[type=radio] {
     display: inline-block; margin: 5px; line-height: 30px; height: 30px; width: auto;
@@ -97,6 +109,17 @@ input[type=button]:hover {
     font-size: 24px;
     background-color: #FFFFFF; color: #000066;
 }
+div.filterWidget input[type=button] {
+    display: block; margin: 0px; padding: 0px; line-height: 20px; height: 20px; width: 150px;
+    font-size: 14px; font-weight: bold;
+    background-color: #009900; color: #FFFFFF;
+	border-width: 1px; border-color: #009900; border-radius: 5px 5px 20px 20px;
+    box-shadow: none;
+}
+div.filterWidget input[type=button]:hover {
+    font-size: 14px;
+    background-color: #FFFFFF; color: #009900;
+}
 /******************************************************************************/
 label {
     display: block; margin: auto auto; line-height: 30px; height: 30px; width: auto;
@@ -117,10 +140,10 @@ label.title {
 }
 /******************************************************************************/
 span {
-    display: inline; margin: auto auto; line-height: 30px; height: 30px; width: auto;
+    display: inline; margin: auto auto; line-height: auto; height: auto; width: auto;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
-    background-color: inherit; color: #000000;
+    background-color: transparent; color: #000000;
     border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
     box-shadow: none;
 }
@@ -136,4 +159,5 @@ span.validator {
     font-size: 14px; font-weight: bold;
     background-color: #FFFF00; color: #000000;
 }
+div.filterWidget span.validator { font-size: 12px; }
 /******************************************************************************/
