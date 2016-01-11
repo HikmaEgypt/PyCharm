@@ -31,7 +31,7 @@ function addClick() {
             data = data.replace(/Error:/, "");
             myWindow.document.write(data);
         }
-        else { $("#output").html(data);
+        else { $("input#id").val(data);
         }
         //alert(data)
         //alert("Status: " + status);

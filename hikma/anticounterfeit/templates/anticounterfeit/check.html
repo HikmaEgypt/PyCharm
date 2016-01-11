@@ -21,42 +21,42 @@
 					</tfoot>
 					<tbody>
 						<tr><th>بيانات المنتج</th></tr>
-						<tr><td><select id="product" validator="Empty,Dg"><option value="">اختر منتج</option></select></td>
+						<tr><td><select id="product" validator="Empty,Dg" validatorSignature="201601110106"><option value="">اختر منتج</option></select></td>
 							<td rowspan=2 class="tableImage"><img src="/static/check-result/images/product.jpg" alt="Product"></td></tr>
 						<tr>
 							{% if QRCode %}
-								<td><input type="text" id="productCode" value="{{ QRCode }}" validator="Empty,Dg"></td></tr>
+								<td><input type="text" id="productCode" value="{{ QRCode }}" validator="Empty,Dg" validatorSignature="201601110106"></td></tr>
 							{% else %}
-								<td><input type="text" id="productCode" placeholder="كود المنتج" validator="Empty,Dg"></td></tr>
+								<td><input type="text" id="productCode" placeholder="كود المنتج" validator="Empty,Dg" validatorSignature="201601110106"></td></tr>
 							{% endif %}
 	
 						<tr><th>بيانات المستخدم</th></tr>
 						<tr>
 							<td>
-								<select id="patientOrPharmacist" validator="Empty,EnSmCp">
+								<select id="patientOrPharmacist" validator="Empty,EnSmCp" validatorSignature="201601110106">
 									<option value="">مريض \ صيدلى</option>
 									<option value="Patient">مريض </option>
 									<option value="Pharmacist">صيدلى</option>
 								</select>
 							</td>
 							<td rowspan=4 class="tableImage"><img src="/static/check-result/images/user.jpg" alt="User"></td></tr>
-						<tr><td><input type="text" id="checker" placeholder="إسمك" validator="Empty,Spcs,Min03,Max50,EnSmCpArSpc"></td></tr>
-						<tr><td><input type="text" id="checkerMobile" placeholder="رقمك المحمول" validator="Empty,EgyptianMobile"></td></tr>
-						<tr><td><input type="text" id="checkerEmail" placeholder="بريدك الإلكترونى" validator="Empty,Dts,Dshs,Email"></td></tr>
+						<tr><td><input type="text" id="checker" placeholder="إسمك" validator="Empty,Spcs,Min03,Max50,EnSmCpArSpc" validatorSignature="201601110106"></td></tr>
+						<tr><td><input type="text" id="checkerMobile" placeholder="رقمك المحمول" validator="Empty,EgyptianMobile" validatorSignature="201601110106"></td></tr>
+						<tr><td><input type="text" id="checkerEmail" placeholder="بريدك الإلكترونى" validator="Empty,Dts,Dshs,Email" validatorSignature="201601110106"></td></tr>
 	
 						<tr><th>بيانات الصيدلية</th></tr>
-						<tr><td><select id="pharmacyState" validator="Empty,Dg"><option value="" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة">المحافظة</option></select></td>
+						<tr><td><select id="pharmacyState" validator="Empty,Dg" validatorSignature="201601110106"><option value="">المحافظة</option></select></td>
 							<td rowspan=3 class="tableImage"><img src="/static/check-result/images/pharmacy.png" alt="Pharmacy"></td></tr>
-						<tr><td><select id="pharmacyCity" validator="Empty,Dg"><option value="">المنطقة</option></select></td></tr>
-						<tr><td><div><select id="pharmacy" validator="Empty,Dg"><option value="">اختر الصيدلية</option></select></div>
-								<div><input type="text" id="pharmacy" validator="Empty,Spcs,Min03,Max50,ArDgSpc" style="display:none;"/></div></td></tr>
+						<tr><td><select id="pharmacyCity" validator="Empty,Dg" validatorSignature="201601110106"><option value="">المنطقة</option></select></td></tr>
+						<tr><td><div><select id="pharmacy" validator="Empty,Dg" validatorSignature="201601110106"><option value="">اختر الصيدلية</option></select></div>
+								<div><input type="text" id="pharmacy" validator="Empty,Spcs,Min03,Max50,ArDgSpc" validatorSignature="201601110106" style="display: none;"/></div></td></tr>
 	
 						<tr><th>بيانات الطبيب</th></tr>
-						<tr><td><select id="doctorState" validator="Empty,Dg" validatorMessage="* قيمة مطلوبة"><option value="">المحافظة</option></select></td>
+						<tr><td><select id="doctorState" validator="Empty,Dg" validatorSignature="201601110106"><option value="">المحافظة</option></select></td>
 							<td rowspan=3 class="tableImage"><img src="/static/check-result/images/doctor.jpg" alt="Doctor"></td></tr>
-						<tr><td><select id="doctorCity" validator="Empty,Dg"><option value="">المنطقة</option></select></td></tr>
-						<tr><td><div><select id="doctor" validator="Empty,Dg"><option value="">اختر الطبيب</option></select></div>
-								<div><input type="text" id="doctor" validator="Empty,Spcs,Min03,Max50,ArDgSpc" style="display:none;"/></div></td></tr>
+						<tr><td><select id="doctorCity" validator="Empty,Dg" validatorSignature="201601110106"><option value="">المنطقة</option></select></td></tr>
+						<tr><td><div><select id="doctor" validator="Empty,Dg" validatorSignature="201601110106"><option value="">اختر الطبيب</option></select></div>
+								<div><input type="text" id="doctor" validator="Empty,Spcs,Min03,Max50,ArDgSpc" validatorSignature="201601110106" style="display: none;"/></div></td></tr>
 						<tr><td><input type="button" id="check" value="استعلام" colspan=2></tr>
 					</tbody>
 				</table>

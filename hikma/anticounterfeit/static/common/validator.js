@@ -36,9 +36,9 @@ function Validator (validatorInput) {
 		return this.validatorResult;
 	};
 };
-function validatorArray() {
+function validatorArray(validatorSignature) {
 	var validatorArrayCondition = true;
-	$("[validator]:visible").each(function(){
+	$("[validatorSignature=" + validatorSignature + "]:visible").each(function(){
 		var v = new Validator($(this)).run();
 		validatorArrayCondition = validatorArrayCondition && v;
 		//validatorArrayCondition = validatorArrayCondition && new Validator($(this)).run(); //stopped after first validator !!!

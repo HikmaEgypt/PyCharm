@@ -1,36 +1,51 @@
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 
-table{font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif"; font-size:16px; align:center; white-space:nowrap;}
-th{color:#FFFFFF;background-color:#C25B56;}
-tr{color:#000000;background-color:#BEB9B5;}
-tr:hover{color:#000000;background-color:#96C0CE;}
-/*
-tr:nth-child(odd){color:#000000;background-color:#FF0000;}
-tr:nth-child(even){color:#000000;background-color:#FFFFFF;}
-*/
-td{width:300px; height:30px; text-align:center;}
-.tableImage{width:100px; color:#000000; background-color:#FFFFFF;}
-
-select{width:290px; font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif"; font-size:13px; font-weight:bold; direction:RTL; text-align:right;}
-
-input[type=text]{width:290px; font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif"; font-size:13px; font-weight:bold; direction:RTL; text-align:right;}
-
-label{width:290px; font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif"; font-size:13px; font-weight:bold; direction:RTL; text-align:right;}
+/******************************************************************************/
+table {
+    display: block; margin: 0; line-height: auto; height: auto; width: 625;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle; white-space:nowrap;
+    background-color: transparent; color: #000000;
+    border: none; border-width: 0px; border-color: #FFFFFF; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle; white-space:nowrap;
+    background-color: transparent; color: #000000;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr th {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: 306px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle; white-space:nowrap;
+    background-color: #C25B56; color: #FFFFFF;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr td {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: 306px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle; white-space:nowrap;
+    background-color: #BEB9B5; color: #000000;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr td:hover { background-color:#96C0CE; color:#000000; }
+table tr td.tableImage{width:100px; color:#000000; background-color:transparent;}
+table tr td:hover.tableImage{width:100px; color:#000000; background-color:transparent;}
+/******************************************************************************/
+input[type=text], select, label{
+    display: block; margin: 2px 2px; padding: 0px; line-height: 30px; height: 30px; width: 300px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 13px; font-weight: bold; direction: rtl; text-align: right; vertical-align: middle;
+    background-color: #FFFFFF; color: #000000;
+    border: solid; border-width: 1px; border-color: #CCCCFF; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
 
 div.validator {width: 300px; direction:ltr; text-align: left;}
 span.validator {background-color:#FFFF00; color:#000000; font-size:12px; font-weight:bold; font-family:"Droid Arabic Naskh", "calibri", "verdana", "sans-serif";}
-/*
-.message{background:#87CEEB;}
-.arabic{direction:RTL;text-align:right;}
-.searchHeaderTable th{color:#000000;background-color:#87CEEB;}
-.searchHeaderTable td{color:#000000;background-color:#87CEEB;}
-div{width:450px;}
-.searchDiv {background:#FFFFFF;}
-.searchBodyDiv {height:100px;overflow-y:scroll;}
-.searchBodyTable th{color:#FFFFFF;background-color:#000000;}
-.searchBodyTable tr{color:#FFFFFF;background-color:#6E6E6E;}
-.searchBodyTable tr:nth-child(odd){color:#FFFFFF;background-color:#6E6E6E;}
-.searchBodyTable tr:nth-child(even){color:#000000;background-color:#FFFFFF;}
-.searchBodyTable tr:hover{color:#FFFFFF;background-color:#000000;}
-*/

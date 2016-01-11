@@ -55,7 +55,7 @@ function doctorChange(){
 function checkClick() {
 	pharmacyValue	= ($("select#pharmacy").val()==0?$("input[type=text]#pharmacy").val():$("select#pharmacy").val());
 	doctorValue		= ($("select#doctor").val()==0?$("input[type=text]#doctor").val():$("select#doctor").val());
-	if(validatorArray()){
+	if(validatorArray("201601110106")){
 		postArray = {
 			product			: $("#product").val(),
 			productCode		: $("#productCode").val(),

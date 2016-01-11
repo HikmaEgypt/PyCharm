@@ -3,6 +3,41 @@
 
 /* #CC3366 #CC00FF */
 /******************************************************************************/
+table {
+    display: block; margin: 0; line-height: auto; height: auto; width: 625;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #FFFFFF; color: #000000;
+    border: none; border-width: 0px; border-color: #FFFFFF; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    /*background-color: #FFFFFF; color: #000000;*/
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr th {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: 200;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #000066; color: #FFFFFF;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr td {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: 200;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    /*background-color: #FFFFFF; color: #000000;*/
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr:nth-child(odd) td { background-color: #EEEEFF; color: #000000; }
+table tr:nth-child(even) td { background-color: #CCCCFF; color: #000000; }
+/******************************************************************************/
 table.validationTable {
     margin: auto auto;
     font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
@@ -21,15 +56,14 @@ div {
     border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
     box-shadow: none;
 }
-div.window {
-    background-color: #EEEEFF; color: #000000;
-    border-radius: 15px;
-}
+div.window { border-radius: 15px; }
 div.title { width: 314px; }
 div.output { width: 314px; text-align: left; }
 div.inputs { width:310px; }
 div.input { width: 310px; }
 div.inputsBorder { border: solid; border-width: 2px; border-color: #CCCCFF; }
+div.tableHeader { width: 650px; }
+div.tableRows { height: 100px; width: 650px; overflow-y: scroll; }
 /******************************************************************************/
 input[type=text], select {
     display: block; margin: 5px; line-height: 30px; height: 30px; width: 300px;

@@ -59,7 +59,7 @@ class UniqueRandomNumbers(models.Model):
 		try:
 			self.save()
 			if self.pk:
-				result = "Has been saved successfully, ID# " + str(self.pk)
+				result = str(self.pk)
 		except Exception as e:
 			result = str(e)
 
