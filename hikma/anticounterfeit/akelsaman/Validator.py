@@ -6,6 +6,10 @@
 #   va = ValidatorsArray(DICTIONARY[Ex. request.POST], MODELNAME[Ex. UniqueRandomNumbersGroup])
 #   print(va.runHTML())
 
+# Tips:
+#   UniqueRandomNumbersGroup.__name__ # UniqueRandomNumbersGroup.__base__.__name__
+#   self.modelObjectFieldsNames = self.modelObject._meta.get_fields()
+
 import re
 from .validatorSettings import validatorPatterns, validatorMessages
 
@@ -39,24 +43,16 @@ class Validator:
 		return self.validatorMessage
 
 class ValidatorsArray:
-	def __init__(self, validatorsInputs, modelClass):
+	def __init__(self, validatorsInputs, fieldsValidatorsRulesDictionary):
 		self.validatorsInputs = validatorsInputs
-		self.modelObject = modelClass()
-		# UniqueRandomNumbersGroup.__name__ # UniqueRandomNumbersGroup.__base__.__name__
-		self.modelObjectFieldsNames = self.modelObject._meta.get_fields()
-		self.fieldsValidatorsRulesDictionary = self.modelObject.fieldsValidatorsRulesDictionary()
+		self.fieldsValidatorsRulesDictionary = fieldsValidatorsRulesDictionary
 		self.validatorsArrayMessage = ""
 
-	def runText(self):
+	def runAndReturnValidatorArrayMessageInFormat(self, validatorArrayMessageFormat):
 		self.run()
 		if self.validatorsArrayMessage:
-			self.textMessage()
-		return self.validatorsArrayMessage
-
-	def runHTML(self):
-		self.run()
-		if self.validatorsArrayMessage:
-			self.htmlMessage()
+			if validatorArrayMessageFormat=="text": self.textMessage()
+			if validatorArrayMessageFormat=="html": self.htmlMessage()
 		return self.validatorsArrayMessage
 
 	def run(self):

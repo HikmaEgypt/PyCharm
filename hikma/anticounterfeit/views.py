@@ -31,14 +31,15 @@ def uniqueRandomNumbers(request):
 	return HttpResponse(htmlTable)
 
 def uniqueRandomNumbersAdd(request):
-	fieldName = ""
+	uniqueRandomNumbers = UniqueRandomNumbers()
 	if request.POST:
-		va = ValidatorsArray(request.POST, UniqueRandomNumbers)
-		vaHTML = va.runHTML()
+		uniqueRandomNumbers = UniqueRandomNumbers()
+		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
+		va = ValidatorsArray(request.POST, fieldsValidatorsRulesDictionary)
+		vaHTML = va.runAndReturnValidatorArrayMessageInFormat('html')
 		if vaHTML:
 			return HttpResponse(vaHTML)
 		else:
-			uniqueRandomNumbers = UniqueRandomNumbers()
 			response = uniqueRandomNumbers.insert(request.POST)
 			return HttpResponse(response)
 	else:
