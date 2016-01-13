@@ -35,8 +35,8 @@ def uniqueRandomNumbersAdd(request):
 	if request.POST:
 		uniqueRandomNumbers = UniqueRandomNumbers()
 		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
-		va = ValidatorsArray(request.POST, fieldsValidatorsRulesDictionary)
-		vaHTML = va.runAndReturnValidatorArrayMessageInFormat('html')
+		va = ValidatorsArray()
+		vaHTML = va.runDictionary(request.POST, fieldsValidatorsRulesDictionary, 'html')
 		if vaHTML:
 			return HttpResponse(vaHTML)
 		else:
@@ -47,6 +47,9 @@ def uniqueRandomNumbersAdd(request):
 
 def uniqueRandomNumbersEdit(request, urn=0):
 	pass
+
+def uniqueRandomNumbersFilters(request):
+	return render(request, 'anticounterfeit/UniqueRandomNumbers/filters.html', )
 
 def product(request):
 	products = Product.objects.all()

@@ -14,6 +14,8 @@ urlpatterns = [
                url(r'^urn/add/$', views.uniqueRandomNumbersAdd, name='uniqueRandomNumbersAdd'),
                # ex: /anticounterfeit/urn/edit
                url(r'^urn/edit/$', views.uniqueRandomNumbersEdit, name='uniqueRandomNumbersEdit'),
+               # ex: /anticounterfeit/urn/filters
+               url(r'^urn/filters/$', views.uniqueRandomNumbersFilters, name='uniqueRandomNumbersFilters'),
                # ex: /anticounterfeit/product/
                url(r'^product/$', views.product, name='product'),
                # ex: /anticounterfeit/state

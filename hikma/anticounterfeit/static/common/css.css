@@ -1,0 +1,168 @@
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+/* #CC3366 #CC00FF */
+/******************************************************************************/
+table {
+    display: block; margin: 0; line-height: auto; height: auto; width: 625;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #FFFFFF; color: #000000;
+    border: none; border-width: 0px; border-color: #FFFFFF; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    /*background-color: #FFFFFF; color: #000000;*/
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr th {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: 200;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #000066; color: #FFFFFF;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr td {
+    display: inline-cell; margin: 0px 1px; line-height: auto; height: auto; width: 200;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    /*background-color: #FFFFFF; color: #000000;*/
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none
+}
+table tr:nth-child(odd) td { background-color: #EEEEFF; color: #000000; }
+table tr:nth-child(even) td { background-color: #CCCCFF; color: #000000; }
+/******************************************************************************/
+table.validationTable {
+    margin: auto auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align:left; vertical-align: middle;
+    white-space: nowrap;
+}
+table.validationTable th { background-color: #000066; color: #FFFFFF; }
+table.validationTable tr { background-color: #CCCCFF; color: #000066; }
+table.validationTable tr:hover { background-color: #CCFF99; color: #000000; }
+/******************************************************************************/
+div {
+    display: block; margin: auto auto; line-height: auto; height: auto; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: transparent; color: #000000;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+div.window { background-color: #EEEEFF; color: #000000; border-radius: 15px; }
+div.title { width: 314px; }
+div.output { width: 314px; text-align: left; }
+div.inputs { width:310px; }
+div.input { width: 310px; }
+div.inputsBorder { border: solid; border-width: 2px; border-color: #CCCCFF; }
+div.tableColumns { width: 650px; }
+div.tableRows { height: 100px; width: 650px; overflow-y: scroll; }
+div.filterWidget { width: 170px; position: relative; background-color: transparent; }
+div.filters { position: relative; top: 0px; left: 0px; right: 0px; height:100px; background-color: transparent; overflow-y: scroll; }
+/******************************************************************************/
+input[type=text], select {
+    display: block; margin: 5px; padding: 0px; line-height: 30px; height: 30px; width: 300px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #FFFFFF; color: #000000;
+    border: solid; border-width: 1px; border-color: #CCCCFF; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+input[type=text]:focus, select:focus { border-color: #0000FF; }
+input[type=text]:disabled, select:disabled { color: #666666; }
+
+div.filterWidget input[type=text], div.filterWidget select {
+	margin: 0px; padding: 0px; line-height: 20px; height: 20px; width: 150px;
+    font-family: "calibri", "verdana", "sans-serif";
+	font-size: 12px;
+	border: none; border-width: 0px; border-color: #FFFFFF;
+}
+div.filterWidget input[type=text]:focus, div.filterWidget select:focus { border: solid; border-width: 1px; border-color: #00FF00; }
+
+
+input[type=radio] {
+    display: inline-block; margin: 5px; line-height: 30px; height: 30px; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #FFFFFF; color: #000000;
+    border: solid; border-width: 1px; border-color: #CCCCFF; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+
+input[type=button] {
+    display: inline-block; margin: 5px; line-height: 30px; height: 30px; width: 100px;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 24px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: #000066; color: #FFFFFF;
+    border: solid; border-width: 2px; border-color: #000066; border-radius: 15px 5px 15px 5px;
+    box-shadow: none;
+}
+input[type=button]:hover {
+    font-size: 24px;
+    background-color: #FFFFFF; color: #000066;
+}
+div.filterWidget input[type=button] {
+    display: block; margin: 0px; padding: 0px; line-height: 20px; height: 20px; width: 150px;
+    font-size: 14px; font-weight: bold;
+    background-color: #009900; color: #FFFFFF;
+	border-width: 1px; border-color: #009900; border-radius: 5px 5px 20px 20px;
+    box-shadow: none;
+}
+div.filterWidget input[type=button]:hover {
+    font-size: 14px;
+    background-color: #FFFFFF; color: #009900;
+}
+/******************************************************************************/
+label {
+    display: block; margin: auto auto; line-height: 30px; height: 30px; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: left; vertical-align: middle;
+    background-color: inherit; color: #000000;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+label.formTitle {
+    width: 314px;
+    font-size: 20px; text-align: center;
+    background-color: #000066; color: #FFFFFF;
+}
+label.title {
+    font-size: 14px;
+    background-color: #CCCCFF; color: #000000;
+}
+/******************************************************************************/
+span {
+    display: inline; margin: auto auto; line-height: auto; height: auto; width: auto;
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 16px; font-weight: bold; direction: ltr; text-align: center; vertical-align: middle;
+    background-color: transparent; color: #000000;
+    border: none; border-width: 0px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+span.output {
+    line-height: normal; height: auto;
+    font-size: 14px; font-weight: bold;
+    background-color: #FF0000; color: #FFDF00;
+}
+/******************************************************************************/
+hr {
+    display: block; margin: 2px;
+    border: solid; border-width: 1px; border-color: #000000; border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+}
+/******************************************************************************/
+div.validator { direction: ltr; text-align: left; }
+span.validator {
+    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-size: 14px; font-weight: bold;
+    background-color: #FFFF00; color: #000000;
+}
+div.filterWidget span.validator { font-size: 12px; }
+/******************************************************************************/
