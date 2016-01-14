@@ -12,20 +12,21 @@
 	</head>
 	<body>
 		<div class="filterWidget">
+			{% csrf_token %}
 			<hr>
 			<div>
-				<select id="field" validator="Empty,Any" validatorSignature="201601111631">
+				<select id="field" validator="" validatorSignature="">
 					<option value="">Fields</option>
-					<option value="id" operators="number" validator="Empty,Dg">ID</option>
-					<option value="product" operators="string" validator="Empty,Spcs,EnSmCpArDgSpc">Product</option>
-					<option value="internalOrExternal" operators="string" validator="Empty,internalOrExternal">Internal Or External</option>
-					<option value="count" operators="number" validator="Empty,Dg">Count</option>
-					<option value="batchNumber" operators="number" validator="Empty,Dg">Batch Number</option>
-					<option value="dateTime" operators="number" validator="Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM">Date And Time</option>
+					<option value="id" operators="number" validator="">ID</option>
+					<option value="product" operators="string" validator="">Product</option>
+					<option value="internalOrExternal" operators="string" validator="">Internal Or External</option>
+					<option value="count" operators="number" validator="">Count</option>
+					<option value="batchNumber" operators="number" validator="">Batch Number</option>
+					<option value="dateTime" operators="number" validator="">Date And Time</option>
 				</select>
 			</div>
-			<div><select id="operator" validator="Empty,Any" validatorSignature="201601111631"><option value="">Operators</option></select></div>
-			<div><input type="text" id="searchValue" value="" placeholder="Search Value" validator="Empty,Any" validatorSignature="201601111631"/></div>
+			<div><select id="operator" validator="" validatorSignature=""><option value="">Operators</option></select></div>
+			<div><input type="text" id="searchValue" value="" placeholder="Search Value" validator="" validatorSignature=""/></div>
 			<input type="button" id="addFilter" value="+ Add filter"></button>
 			<hr>
 			<div id="filters" class="filters"></div>

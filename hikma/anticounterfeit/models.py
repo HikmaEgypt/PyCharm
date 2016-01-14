@@ -25,7 +25,7 @@ class Product(models.Model):
 class UniqueRandomNumbers(models.Model):
 	product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
 	internalOrExternal = models.CharField('Internal Or External', null=False, blank=False, max_length=8)
-	uniqueRandomNumbersCount = models.PositiveIntegerField('uniqueRandomNumbersCount', null=False, blank=False)
+	count = models.PositiveIntegerField('count', null=False, blank=False)
 	batchNumber = models.PositiveSmallIntegerField('Batch Number', null=False, blank=False)
 	dateAndTime = models.DateTimeField('Date and Time', null=False, blank=False, unique=True)
 	active = models.BooleanField('Active', default=False, null=False, blank=False)
@@ -39,7 +39,7 @@ class UniqueRandomNumbers(models.Model):
 		fieldsValidatorsRulesDictionary["id"] = ""
 		fieldsValidatorsRulesDictionary["product"] = "Empty,Dg"
 		fieldsValidatorsRulesDictionary["internalOrExternal"] = "Empty,internalOrExternal"
-		fieldsValidatorsRulesDictionary["uniqueRandomNumbersCount"] = "Empty,Dg"
+		fieldsValidatorsRulesDictionary["count"] = "Empty,Dg"
 		fieldsValidatorsRulesDictionary["batchNumber"] = "Empty,EnSmCpDg"
 		fieldsValidatorsRulesDictionary["dateAndTime"] = "Empty,Month01-12,MonthFormatIsWrong,Day01-31,DayFormatIsWrong,Hour00-23,HourFormatIsWrong,Minute00-59,MinuteFormatIsWrong,YYYY.MM.DD HH:MM"
 		fieldsValidatorsRulesDictionary["active"] = ""
@@ -50,7 +50,7 @@ class UniqueRandomNumbers(models.Model):
 		productInstance = Product.objects.get(id=inputs["product"])
 		self.product = productInstance
 		self.internalOrExternal = inputs["internalOrExternal"]
-		self.uniqueRandomNumbersCount = inputs["uniqueRandomNumbersCount"]
+		self.count = inputs["count"]
 		self.batchNumber = inputs["batchNumber"]
 
 		dt = DateTimeObject()
@@ -70,7 +70,7 @@ class UniqueRandomNumbers(models.Model):
 		outputs["id"] = self.id
 		outputs["product"] = self.product.product
 		outputs["internalOrExternal"] = self.internalOrExternal
-		outputs["uniqueRandomNumbersCount"] = self.uniqueRandomNumbersCount
+		outputs["count"] = self.count
 		outputs["batchNumber"] = self.batchNumber
 		outputs["dataAndTime"] = self.dateAndTime
 		return outputs

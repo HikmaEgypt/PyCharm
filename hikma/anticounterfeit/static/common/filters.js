@@ -51,14 +51,27 @@ $(document).ready(function(){
 	$('input[type=button]#runFilters').click(function(){
 		var filters = {};
 		$("div.filterWidget > div.filters > select").each(function(){
-			var fieldFiltersArray = [];
+
+			var fieldFiltersArray = "";
 			var key = $(this).attr('id');
 			$(this).find('option').each(function(){
-				if ($(this).val()) { fieldFiltersArray.push($(this).val()); }
+				if ($(this).val()) { fieldFiltersArray = fieldFiltersArray + "::,::" + $(this).val() }
 			});
+
 			filters[key] = fieldFiltersArray;
 		});
-		alert(filters["product"]);
+		alert(filters["count"]);
+		$.post("/anticounterfeit/urn/filters/", filters, function(data, status){
+			if (new RegExp("^Error:").test(data)) {
+				var myWindow = window.open("", "Add Unique Random Numbers Validator", "width=400, height=300, scrollbars=yes");
+				data = data.replace(/Error:/, "");
+				myWindow.document.write(data);
+			}
+			else { myWindow.document.write(data);
+			}
+			//alert(data)
+			//alert("Status: " + status);
+		});
 	});
 });
 var operatorsDictionariesDictionary = {

@@ -6,7 +6,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404, get_
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbers
-from .akelsaman.Validator import Validator, ValidatorsArray
+from .akelsaman.Validator import Validator, ValidatorsDictionary
 from .akelsaman.HTML import HTMLTable
 
 # Create your views here.
@@ -33,10 +33,9 @@ def uniqueRandomNumbers(request):
 def uniqueRandomNumbersAdd(request):
 	uniqueRandomNumbers = UniqueRandomNumbers()
 	if request.POST:
-		uniqueRandomNumbers = UniqueRandomNumbers()
 		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
-		va = ValidatorsArray()
-		vaHTML = va.runDictionary(request.POST, fieldsValidatorsRulesDictionary, 'html')
+		va = ValidatorsDictionary()
+		vaHTML = va.runDictionary(validatorsInputsDictionary=request.POST, fieldsValidatorsRulesDictionary=fieldsValidatorsRulesDictionary, validatorsDictionaryMessageFormat='html')
 		if vaHTML:
 			return HttpResponse(vaHTML)
 		else:
@@ -49,7 +48,15 @@ def uniqueRandomNumbersEdit(request, urn=0):
 	pass
 
 def uniqueRandomNumbersFilters(request):
-	return render(request, 'anticounterfeit/UniqueRandomNumbers/filters.html', )
+	uniqueRandomNumbers = UniqueRandomNumbers()
+	if request.POST:
+		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
+		va = ValidatorsDictionary()
+		vaHTML = va.runDictionary(validatorsInputsArraysDictionay=request.POST, fieldsValidatorsRulesDictionary=fieldsValidatorsRulesDictionary, validatorsDictionaryMessageFormat='html')
+		if vaHTML:
+			return HttpResponse(vaHTML)
+	else:
+		return render(request, 'anticounterfeit/UniqueRandomNumbers/filters.html', )
 
 def product(request):
 	products = Product.objects.all()

@@ -12,15 +12,14 @@
 
 import re
 from .validatorSettings import validatorPatterns, validatorMessages
-
-# ============================================================================ #
+#==============================================================================#
 class Validator:
 	def __init__(self, validatorInput, validatorRules):
 		self.validatorInput = validatorInput
 		self.validatorRules = validatorRules.split(",")
 		self.validatorsRulesLength = self.validatorRules.__len__()
 		self.validatorMessage = ""
-# ---------------------------------------------------------------------------- #
+#------------------------------------------------------------------------------#
 	def run(self):
 		self.validatorMessage = ""
 		for i in range(0, self.validatorsRulesLength - 1):
@@ -50,44 +49,59 @@ class ValidatorsDictionary:
 		self.fieldsValidatorsRulesDictionary = ""
 		self.validatorsDictionaryMessage = ""
 # ---------------------------------------------------------------------------- #
-	def runDictionary(self, validatorsInputsDictionary="", validatorsInputsArraysDictionay="", fieldsValidatorsRulesDictionary="", validatorsDictionaryMessageFormat="html"):
+	def runDictionary(self, validatorsInputsDictionary, fieldsValidatorsRulesDictionary, validatorsDictionaryMessageFormat=""):
 		self.validatorsInputsDictionary = validatorsInputsDictionary
+		self.fieldsValidatorsRulesDictionary = fieldsValidatorsRulesDictionary
+		self.validatorsDictionaryMessage = ""
+		for fieldName in self.fieldsValidatorsRulesDictionary:
+			if self.fieldsValidatorsRulesDictionary[fieldName] is not "":
+				validatorRules = self.fieldsValidatorsRulesDictionary[fieldName]
+				validatorMessage=""
+				try:
+					validatorInput = self.validatorsInputsDictionary[fieldName]
+					validator = Validator(validatorInput,validatorRules)
+					validatorMessage = "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + validator.run()
+				# if you are using MultiValueDictKeyError, from django.utils.datastructures import MultiValueDictKeyError
+				except KeyError:
+					validatorInput = ""
+					validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
+				if(validatorMessage):
+					validatorMessage = "{{h1:: * Input\t: " + fieldName + "::h1}}\n" + \
+					                   "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + \
+					                   validatorMessage
+					self.validatorsDictionaryMessage = self.validatorsDictionaryMessage + "\n\n" + validatorMessage
+		if self.validatorsDictionaryMessage:
+			if validatorsDictionaryMessageFormat=="text": self.textMessage()
+			if validatorsDictionaryMessageFormat=="html": self.htmlMessage()
+			return self.validatorsDictionaryMessage
+#------------------------------------------------------------------------------#
+	def runArraysDictionary(self, validatorsInputsArraysDictionay, fieldsValidatorsRulesDictionary, validatorsDictionaryMessageFormat=""):
 		self.validatorsInputsArraysDictionay = validatorsInputsArraysDictionay
 		self.fieldsValidatorsRulesDictionary = fieldsValidatorsRulesDictionary
 		self.validatorsDictionaryMessage = ""
 		for fieldName in self.fieldsValidatorsRulesDictionary:
 			if self.fieldsValidatorsRulesDictionary[fieldName] is not "":
 				validatorRules = self.fieldsValidatorsRulesDictionary[fieldName]
-				validatorsMessages=""
 				try:
-					if validatorsInputsDictionary:
-						validatorInput = self.validatorsInputsDictionary[fieldName]
+					validatorsInputsArray = self.validatorsInputsArraysDictionay[fieldName].split(",")
+					validatorMessage = ""
+					for validatorInput in validatorsInputsArray:
 						validator = Validator(validatorInput,validatorRules)
-						validatorMessage = validator.run()
-						if validatorMessage:
-							validatorsMessages = "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + validatorMessage
-					elif validatorsInputsArraysDictionay:
-						validatorsInputsArray = self.validatorsInputsArraysDictionay[fieldName].split("::,::")
-						for validatorInput in validatorsInputsArray:
-							validator = Validator(validatorInput[3:],validatorRules)
-							validatorMessage = validator.run()
-							if validatorMessage:
-								validatorsMessages = validatorsMessages + \
-								                     "\n{{h2:: * Value\t: " + validatorInput[3:] + "::h2}}\n" + \
-								                     validatorMessage
+						a = validator.run()
+						validatorMessage = validatorMessage + "\n{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + a
 				# if you are using MultiValueDictKeyError, from django.utils.datastructures import MultiValueDictKeyError
 				except KeyError:
 					validatorInput = ""
-					validatorsMessages = "{{MessageLine::Missing input::MessageLine}}"
-				if(validatorsMessages):
-					validatorsMessages = "{{h1:: * Input\t: " + fieldName + "::h1}}\n" + \
-					                   validatorsMessages
-					self.validatorsDictionaryMessage = self.validatorsDictionaryMessage + "\n\n" + validatorsMessages
+					validatorMessage = "{{MessageLine::Missing input::MessageLine}}"
+				if(validatorMessage):
+					validatorMessage = "{{h1:: * Input\t: " + fieldName + "::h1}}\n" + \
+					                   validatorMessage
+					self.validatorsDictionaryMessage = self.validatorsDictionaryMessage + "\n\n" + validatorMessage
 		if self.validatorsDictionaryMessage:
 			if validatorsDictionaryMessageFormat=="text": self.textMessage()
 			if validatorsDictionaryMessageFormat=="html": self.htmlMessage()
 			return self.validatorsDictionaryMessage
-# ---------------------------------------------------------------------------- #
+#------------------------------------------------------------------------------#
 	def textMessage(self):
 		self.validatorsDictionaryMessage = re.sub('{{h1::', '', self.validatorsDictionaryMessage)
 		self.validatorsDictionaryMessage = re.sub('::h1}}', '', self.validatorsDictionaryMessage)
@@ -95,7 +109,7 @@ class ValidatorsDictionary:
 		self.validatorsDictionaryMessage = re.sub('::h2}}', '', self.validatorsDictionaryMessage)
 		self.validatorsDictionaryMessage = re.sub('{{MessageLine::', '\t>', self.validatorsDictionaryMessage)
 		self.validatorsDictionaryMessage = re.sub('::MessageLine}}', '', self.validatorsDictionaryMessage)
-# ---------------------------------------------------------------------------- #
+#------------------------------------------------------------------------------#
 	def htmlMessage(self):
 		self.validatorsDictionaryMessage = re.sub('{{h1::', '\t<tr><th class="h1">', self.validatorsDictionaryMessage)
 		self.validatorsDictionaryMessage = re.sub('::h1}}', '</th></tr>', self.validatorsDictionaryMessage)

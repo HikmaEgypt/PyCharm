@@ -40,13 +40,14 @@ table tr:nth-child(even) td { background-color: #CCCCFF; color: #000000; }
 /******************************************************************************/
 table.validationTable {
     margin: auto auto;
-    font-family: "Droid Arabic Naskh", "calibri", "verdana", "sans-serif";
+    font-family: "calibri", "verdana", "sans-serif";
     font-size: 16px; font-weight: bold; direction: ltr; text-align:left; vertical-align: middle;
     white-space: nowrap;
 }
-table.validationTable th { background-color: #000066; color: #FFFFFF; }
-table.validationTable tr { background-color: #CCCCFF; color: #000066; }
-table.validationTable tr:hover { background-color: #CCFF99; color: #000000; }
+table.validationTable tr th.h1 { background-color: #000066; color: #FFFFFF; }
+table.validationTable tr th.h2 { background-color: #CCCCFF; color: #000000; }
+table.validationTable tr td { background-color: #EEEEFF; color: #000066; }
+table.validationTable tr td:hover { background-color: #CCFF99; color: #000000; }
 /******************************************************************************/
 div {
     display: block; margin: auto auto; line-height: auto; height: auto; width: auto;

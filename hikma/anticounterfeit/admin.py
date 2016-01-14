@@ -33,12 +33,12 @@ class UniqueRandomNumbersAdmin(admin.ModelAdmin):
 	list_per_page = 5
 	fieldsets = [
 		("uniqueRandomNumbers",
-		 {'fields': ['product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']}),
+		 {'fields': ['product', 'internalOrExternal', 'count', 'batchNumber', 'active']}),
 	]
 
-	list_display = ['id', 'product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']
-	list_filter = ['id', 'product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']
-	search_fields = ['id', 'product__product', 'internalOrExternal', 'uniqueRandomNumbersCount', 'batchNumber', 'active']
+	list_display = ['id', 'product', 'internalOrExternal', 'count', 'batchNumber', 'active']
+	list_filter = ['id', 'product', 'internalOrExternal', 'count', 'batchNumber', 'active']
+	search_fields = ['id', 'product__product', 'internalOrExternal', 'count', 'batchNumber', 'active']
 
 admin.site.register(UniqueRandomNumbers, UniqueRandomNumbersAdmin)
 
