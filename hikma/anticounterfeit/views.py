@@ -35,7 +35,7 @@ def uniqueRandomNumbersAdd(request):
 	if request.POST:
 		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
 		va = ValidatorsDictionary()
-		vaHTML = va.runDictionary(validatorsInputsDictionary=request.POST, fieldsValidatorsRulesDictionary=fieldsValidatorsRulesDictionary, validatorsDictionaryMessageFormat='html')
+		vaHTML = va.run(request.POST, "Dictionary", fieldsValidatorsRulesDictionary, True, 'html')
 		if vaHTML:
 			return HttpResponse(vaHTML)
 		else:
@@ -52,7 +52,7 @@ def uniqueRandomNumbersFilters(request):
 	if request.POST:
 		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
 		va = ValidatorsDictionary()
-		vaHTML = va.runDictionary(validatorsInputsArraysDictionay=request.POST, fieldsValidatorsRulesDictionary=fieldsValidatorsRulesDictionary, validatorsDictionaryMessageFormat='html')
+		vaHTML = va.run(request.POST, "ArraysDictionary", fieldsValidatorsRulesDictionary, False, 'html')
 		if vaHTML:
 			return HttpResponse(vaHTML)
 	else:
@@ -62,26 +62,21 @@ def product(request):
 	products = Product.objects.all()
 	return render(request, 'anticounterfeit/product', {'products': products})
 
-
 def state(request):
 	states = State.objects.all()
 	return render(request, 'anticounterfeit/state', {'states': states})
-
 
 def city(request, stateID):
 	cities = City.objects.filter(state=stateID)
 	return render(request, 'anticounterfeit/city', {'cities': cities})
 
-
 def pharmacy(request, cityID):
 	pharmacies = Pharmacy.objects.filter(city=cityID)
 	return render(request, 'anticounterfeit/pharmacy', {'pharmacies': pharmacies})
 
-
 def doctor(request, cityID):
 	doctors = Doctor.objects.filter(city=cityID)
 	return render(request, 'anticounterfeit/doctor', {'doctors': doctors})
-
 
 '''
 def checkVariableValidator(request, variableValidator, regexPattern, errorMessage):
@@ -89,7 +84,6 @@ def checkVariableValidator(request, variableValidator, regexPattern, errorMessag
     if (re.match(regexPattern, variableValidator)):
         return HttpResponse(errorMessage)
 '''
-
 
 @ensure_csrf_cookie  # to force setting of csrf cookie if form added dynamically to the page - for example through jquery
 def result(request):

@@ -57,7 +57,7 @@ $(document).ready(function(){
 			$(this).find('option').each(function(){
 				if ($(this).val()) { fieldFiltersArray = fieldFiltersArray + "::,::" + $(this).val() }
 			});
-
+			fieldFiltersArray = fieldFiltersArray.replace(/^::,::/, "");
 			filters[key] = fieldFiltersArray;
 		});
 		alert(filters["count"]);

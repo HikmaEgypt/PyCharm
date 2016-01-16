@@ -46,28 +46,31 @@ class Validator:
 class ValidatorsDictionary:
 	def __init__(self):
 		self.validatorsInputsDictionary = ""
-		self.validatorsInputsArraysDictionay = ""
+		self.validatorsInputsFormat = ""
 		self.fieldsValidatorsRulesDictionary = ""
 		self.validatorsDictionaryMessage = ""
+		self.checkMissingInputs = True
 # ---------------------------------------------------------------------------- #
-	def runDictionary(self, validatorsInputsDictionary="", validatorsInputsArraysDictionay="", fieldsValidatorsRulesDictionary="", validatorsDictionaryMessageFormat="html"):
+	def run(self, validatorsInputsDictionary, validatorsInputsFormat, fieldsValidatorsRulesDictionary,
+	        checkMissingInputs, validatorsDictionaryMessageFormat):
 		self.validatorsInputsDictionary = validatorsInputsDictionary
-		self.validatorsInputsArraysDictionay = validatorsInputsArraysDictionay
+		self.validatorsInputsFormat = validatorsInputsFormat
 		self.fieldsValidatorsRulesDictionary = fieldsValidatorsRulesDictionary
+		self.checkMissingInputs = checkMissingInputs
 		self.validatorsDictionaryMessage = ""
 		for fieldName in self.fieldsValidatorsRulesDictionary:
 			if self.fieldsValidatorsRulesDictionary[fieldName] is not "":
 				validatorRules = self.fieldsValidatorsRulesDictionary[fieldName]
 				validatorsMessages=""
 				try:
-					if validatorsInputsDictionary:
+					if self.validatorsInputsFormat is "Dictionary":
 						validatorInput = self.validatorsInputsDictionary[fieldName]
 						validator = Validator(validatorInput,validatorRules)
 						validatorMessage = validator.run()
 						if validatorMessage:
 							validatorsMessages = "{{h2:: * Value\t: " + validatorInput + "::h2}}\n" + validatorMessage
-					elif validatorsInputsArraysDictionay:
-						validatorsInputsArray = self.validatorsInputsArraysDictionay[fieldName].split("::,::")
+					elif self.validatorsInputsFormat is "ArraysDictionary":
+						validatorsInputsArray = self.validatorsInputsDictionary[fieldName].split("::,::")
 						for validatorInput in validatorsInputsArray:
 							validator = Validator(validatorInput[3:],validatorRules)
 							validatorMessage = validator.run()
@@ -77,32 +80,40 @@ class ValidatorsDictionary:
 								                     validatorMessage
 				# if you are using MultiValueDictKeyError, from django.utils.datastructures import MultiValueDictKeyError
 				except KeyError:
-					validatorInput = ""
-					validatorsMessages = "{{MessageLine::Missing input::MessageLine}}"
+					if checkMissingInputs:
+						validatorsMessages = "{{h2:: * Value\t: ::h2}}\n" + "{{MessageLine::Missing input::MessageLine}}"
 				if(validatorsMessages):
-					validatorsMessages = "{{h1:: * Input\t: " + fieldName + "::h1}}\n" + \
-					                   validatorsMessages
+					validatorsMessages = "{{h1:: * Input\t: " + fieldName + "::h1}}\n" + validatorsMessages
 					self.validatorsDictionaryMessage = self.validatorsDictionaryMessage + "\n\n" + validatorsMessages
 		if self.validatorsDictionaryMessage:
 			if validatorsDictionaryMessageFormat=="text": self.textMessage()
-			if validatorsDictionaryMessageFormat=="html": self.htmlMessage()
+			elif validatorsDictionaryMessageFormat=="html": self.htmlMessage()
 			return self.validatorsDictionaryMessage
 # ---------------------------------------------------------------------------- #
 	def textMessage(self):
-		self.validatorsDictionaryMessage = re.sub('{{h1::', '', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('::h1}}', '', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('{{h2::', '', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('::h2}}', '', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('{{MessageLine::', '\t>', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('::MessageLine}}', '', self.validatorsDictionaryMessage)
+		tagsDictionary = {
+			'{{h1::': '',
+			'::h1}}': '',
+			'{{h2::': '',
+			'::h2}}': '',
+			'{{MessageLine::': '\t>',
+			'::MessageLine}}': '',
+		}
+		for tag in tagsDictionary:
+			self.validatorsDictionaryMessage = re.sub(tag, tagsDictionary[tag], self.validatorsDictionaryMessage)
 # ---------------------------------------------------------------------------- #
 	def htmlMessage(self):
-		self.validatorsDictionaryMessage = re.sub('{{h1::', '\t<tr><th class="h1">', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('::h1}}', '</th></tr>', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('{{h2::', '\t<tr><th class="h2">', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('::h2}}', '</th></tr>', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('{{MessageLine::', '\t<tr><td>', self.validatorsDictionaryMessage)
-		self.validatorsDictionaryMessage = re.sub('::MessageLine}}', '</td></tr>', self.validatorsDictionaryMessage)
+		tagsDictionary = {
+			'{{h1::': '\t<tr><th class="h1">',
+			'::h1}}': '</th></tr>',
+			'{{h2::': '\t<tr><th class="h2">',
+			'::h2}}': '</th></tr>',
+			'{{MessageLine::': '\t<tr><td>',
+			'::MessageLine}}': '</td></tr>',
+		}
+		for tag in tagsDictionary:
+			self.validatorsDictionaryMessage = re.sub(tag, tagsDictionary[tag], self.validatorsDictionaryMessage)
+
 		self.validatorsDictionaryMessage = "<table class='validationTable'><thead></thead><tfoot></tfoot><tbody>" \
 		                              + self.validatorsDictionaryMessage \
 		                              + "\n\n</tbody></table>"
