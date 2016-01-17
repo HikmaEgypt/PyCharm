@@ -69,8 +69,8 @@ $(document).ready(function(){
 		});
 		alert(filters["count"]);
 		$.post("/anticounterfeit/urn/filters/", filters, function(data, status){
+			var myWindow = window.open("", "Add Unique Random Numbers Validator", "width=400, height=300, scrollbars=yes");
 			if (new RegExp("^Error:").test(data)) {
-				var myWindow = window.open("", "Add Unique Random Numbers Validator", "width=400, height=300, scrollbars=yes");
 				data = data.replace(/Error:/, "");
 				myWindow.document.write(data);
 			}

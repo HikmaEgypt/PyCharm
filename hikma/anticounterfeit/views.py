@@ -58,6 +58,24 @@ def uniqueRandomNumbersFilters(request):
 		vaHTML = va.run(request.POST, "ArraysDictionary", fieldsValidatorsRulesDictionary, False, 'html')
 		if vaHTML:
 			return HttpResponse(vaHTML)
+		else:
+			'''
+			kwargs = {
+			    '{0}__{1}'.format('name', 'startswith'): 'A',
+			    '{0}__{1}'.format('name', 'endswith'): 'Z'
+			}
+
+			Person.objects.filter(**kwargs)
+			'''
+			cc = "Product001"
+			bb = Q(product__product=cc)
+			aa = Q(id__lte=10) & bb
+			uniqueRandomNumbers = UniqueRandomNumbers.objects.filter(aa)
+			htmlTable = HTMLTable()
+			for uniqueRandomNumber in uniqueRandomNumbers:
+				htmlTable = uniqueRandomNumber.getHTMLRow(htmlTable)
+			htmlTable = htmlTable.createTable("anyClass")
+			return HttpResponse(htmlTable)
 	else:
 		return render(request, 'anticounterfeit/UniqueRandomNumbers/filters.html', )
 

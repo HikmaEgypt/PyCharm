@@ -87,7 +87,7 @@ class ValidatorsDictionary:
 			if validatorsDictionaryMessageFormat=="text": self.textMessage()
 			elif validatorsDictionaryMessageFormat=="html": self.htmlMessage()
 			return self.validatorsDictionaryMessage
-		else : return None
+		else : return False
 # ---------------------------------------------------------------------------- #
 	def textMessage(self):
 		tagsDictionary = {
