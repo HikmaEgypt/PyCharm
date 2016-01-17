@@ -6,6 +6,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404, get_
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbers
+from django.db.models import Q
 from .akelsaman.Validator import Validator, ValidatorsDictionary
 from .akelsaman.HTML import HTMLTable
 
@@ -23,7 +24,9 @@ def check(request, QRCode=0):
 	return render(request, 'anticounterfeit/check.html', {'QRCode': QRCode})
 
 def uniqueRandomNumbers(request):
-	uniqueRandomNumbers = UniqueRandomNumbers.objects.all()
+	#uniqueRandomNumbers = UniqueRandomNumbers.objects.all()
+	#uniqueRandomNumbers = UniqueRandomNumbers.objects.filter(Q(internalOrExternal__in=["Internal"]) & Q(batchNumber__in=[123, 789]))
+	uniqueRandomNumbers = UniqueRandomNumbers.objects.filter(Q(id__lte=10))
 	htmlTable = HTMLTable()
 	for uniqueRandomNumber in uniqueRandomNumbers:
 		htmlTable = uniqueRandomNumber.getHTMLRow(htmlTable)

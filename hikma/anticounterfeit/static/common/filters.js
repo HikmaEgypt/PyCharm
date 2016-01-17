@@ -33,6 +33,13 @@ $(document).ready(function(){
 					if ($(filterSelectID + '> option:selected').val() != '') {
 						var removeFilter = confirm('Are you sure, you need to delete filter "' + filter + '"');
 						if (removeFilter) { $(filterSelectID + '> option:selected').remove(); }
+						var hasOption = false;
+						$(filterSelectID + '> option').each(function() {
+							if ($(this).val() != '') {
+								hasOption = true;
+							}
+						});
+						if (!hasOption) { $(filterSelectID).remove(); }
 					}
 				});
 			}

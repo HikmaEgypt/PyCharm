@@ -30,18 +30,16 @@ class Validator:
 			if (searchObject):
 				validatorMessage = "{{MessageLine::" + validatorMessage + "::MessageLine}}"
 				self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
-
 		# last rule is the rule of the accepted pattern
-
 		validatorPattern = validatorPatterns[self.validatorRules[self.validatorsRulesLength - 1]]
 		validatorMessage = validatorMessages[self.validatorRules[self.validatorsRulesLength - 1]]
 		searchObject = re.search(validatorPattern, self.validatorInput)
 		if not (searchObject):
 			validatorMessage = "{{MessageLine::" + validatorMessage + "::MessageLine}}"
 			self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
-
 		self.validatorMessage = re.sub('^\n', '', self.validatorMessage)
-		return self.validatorMessage
+		if self.validatorMessage: return self.validatorMessage
+		else : return None
 # ============================================================================ #
 class ValidatorsDictionary:
 	def __init__(self):
@@ -89,6 +87,7 @@ class ValidatorsDictionary:
 			if validatorsDictionaryMessageFormat=="text": self.textMessage()
 			elif validatorsDictionaryMessageFormat=="html": self.htmlMessage()
 			return self.validatorsDictionaryMessage
+		else : return None
 # ---------------------------------------------------------------------------- #
 	def textMessage(self):
 		tagsDictionary = {
