@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 
 class HTMLTable():
@@ -10,7 +12,9 @@ class HTMLTable():
 		header = ''
 		header =  header + '<tr>'
 		for th in thList:
-			header = header + '<th>'+ str(th) + '</th>'
+			try: th = str(th)
+			except UnicodeEncodeError: pass
+			header = header + '<th>'+ th + '</th>'
 		header = header + '</tr>'
 		self.header = self.header + header
 		return header
@@ -19,7 +23,9 @@ class HTMLTable():
 		row = ''
 		row = row + '<tr>'
 		for td in tdList:
-			row = row + '<td>' + str(td) + '</td>'
+			try: td = str(td)
+			except UnicodeEncodeError: pass
+			row = row + '<td>' + td + '</td>'
 		row = row + '</tr>'
 		self.rows = self.rows + row
 		return row

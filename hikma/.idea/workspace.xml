@@ -22,53 +22,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filters.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/filters.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.583333">
-              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.736">
-              <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+            <state vertical-scroll-proportion="4.77">
+              <caret line="159" column="80" selection-start-line="159" selection-start-column="80" selection-end-line="159" selection-end-column="80" />
               <folding>
                 <element signature="e#25#70#0" expanded="true" />
+                <marker date="1453137431852" expanded="true" signature="3202:3516" placeholder="SELECT * FRO... UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3202:3520" placeholder="SELECT * FRO... UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3202:3562" placeholder="SELECT * FRO... anticounterfeit_UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3202:3563" placeholder="SELECT * FRO... anticounterfeit_UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3202:3572" placeholder="SELECT antic... anticounterfeit_UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3202:5512" placeholder="SELECT * FRO... anticounterfeit_UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3209:3477" placeholder="select * fro... UniqueRandomNumbers" />
+                <marker date="1453137431852" expanded="true" signature="3599:3915" placeholder="SELECT antic... anticounterfeit_Pharmacy" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anticounterfeit/admin.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
+              <caret line="157" column="80" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+              <folding>
+                <element signature="e#25#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filters.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/anticounterfeit/static/common/filters.js">
+      <file leaf-file-name="HTML.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/HTML.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -121,7 +111,6 @@
         <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/DateTimeObject.py" />
         <option value="$PROJECT_DIR$/hikma/settings.py" />
         <option value="$PROJECT_DIR$/hikma/urls.py" />
-        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/HTML.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/display.html" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/common/validator.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/check-result/check-result.js" />
@@ -138,12 +127,13 @@
         <option value="$PROJECT_DIR$/anticounterfeit/static/common/css.css" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/UniqueRandomNumbers/add.js" />
         <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/Validator_copy.py" />
-        <option value="$PROJECT_DIR$/anticounterfeit/models.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/admin.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/add.html" />
         <option value="$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/filters.html" />
         <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/Validator.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/static/common/filters.js" />
+        <option value="$PROJECT_DIR$/anticounterfeit/akelsaman/HTML.py" />
+        <option value="$PROJECT_DIR$/anticounterfeit/models.py" />
         <option value="$PROJECT_DIR$/anticounterfeit/views.py" />
       </list>
     </option>
@@ -235,8 +225,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -413,6 +401,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -892,13 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/HTML.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/display.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1004,10 +987,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/filters.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
+        <state vertical-scroll-proportion="-8.583333">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/common/filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1020,36 +1019,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/static/common/filters.js">
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/akelsaman/HTML.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/admin.py">
+    <entry file="file://$PROJECT_DIR$/anticounterfeit/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/anticounterfeit/templates/anticounterfeit/UniqueRandomNumbers/filters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.583333">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding />
+          <caret line="157" column="80" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+          <folding>
+            <element signature="e#25#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/anticounterfeit/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.736">
-          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+        <state vertical-scroll-proportion="4.77">
+          <caret line="159" column="80" selection-start-line="159" selection-start-column="80" selection-end-line="159" selection-end-column="80" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
+            <marker date="1453137431852" expanded="true" signature="3202:3516" placeholder="SELECT * FRO... UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3202:3520" placeholder="SELECT * FRO... UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3202:3562" placeholder="SELECT * FRO... anticounterfeit_UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3202:3563" placeholder="SELECT * FRO... anticounterfeit_UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3202:3572" placeholder="SELECT antic... anticounterfeit_UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3202:5512" placeholder="SELECT * FRO... anticounterfeit_UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3209:3477" placeholder="select * fro... UniqueRandomNumbers" />
+            <marker date="1453137431852" expanded="true" signature="3599:3915" placeholder="SELECT antic... anticounterfeit_Pharmacy" />
           </folding>
         </state>
       </provider>

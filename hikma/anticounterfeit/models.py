@@ -7,7 +7,7 @@ from django.utils import timezone
 
 
 # Create your models here.
-
+# ============================================================================ #
 class Product(models.Model):
 	product = models.CharField('Product', null=False, blank=False, unique=True, max_length=20)
 	image = models.ImageField(upload_to='%y%m%d', height_field=None, width_field=None, max_length=100)
@@ -20,8 +20,7 @@ class Product(models.Model):
 
 	def __unicode__(self):
 		return self.product
-
-
+# ============================================================================ #
 class UniqueRandomNumbers(models.Model):
 	product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
 	internalOrExternal = models.CharField('Internal Or External', null=False, blank=False, max_length=8)
@@ -75,8 +74,6 @@ class UniqueRandomNumbers(models.Model):
 		outputs["dataAndTime"] = self.dateAndTime
 		return outputs
 
-
-
 	def getHTMLRow(self, htmlTable):
 		outputs = self.select()
 		tdList = []
@@ -84,7 +81,7 @@ class UniqueRandomNumbers(models.Model):
 			tdList.append(outputs[key])
 		htmlTable.getRow(tdList)
 		return htmlTable
-
+# ============================================================================ #
 class UniqueRandomNumber(models.Model):
 	uniqueRandomNumber = models.CharField('Unique Random Number', null=False, blank=False, unique=True, max_length=12)
 	uniqueRandomNumbers = models.ForeignKey(UniqueRandomNumbers, null=False, blank=False,
@@ -92,15 +89,13 @@ class UniqueRandomNumber(models.Model):
 
 	def __unicode__(self):
 		return self.uniqueRandomNumber
-
-
+# ============================================================================ #
 class State(models.Model):
 	state = models.CharField('State', null=False, blank=False, unique=True, max_length=20)
 
 	def __unicode__(self):
 		return self.state
-
-
+# ============================================================================ #
 class City(models.Model):
 	city = models.CharField('City', null=False, blank=False, unique=True, max_length=20)
 	state = models.ForeignKey(State, null=False, blank=False, on_delete=models.PROTECT)
@@ -110,8 +105,7 @@ class City(models.Model):
 
 	class Meta:
 		unique_together = (("city", "state"),)
-
-
+# ============================================================================ #
 class Pharmacy(models.Model):
 	pharmacy = models.CharField('Pharmacy', null=False, blank=False, unique=True, max_length=50)
 	city = models.ForeignKey(City, null=False, blank=False, on_delete=models.PROTECT)
@@ -120,12 +114,27 @@ class Pharmacy(models.Model):
 		return self.pharmacy
 
 	def state(self):
-		return self.city.state
+		return self.city.state.state
 
 	class Meta:
 		unique_together = (("pharmacy", "city"),)
 
+	def select(self):
+		outputs = OrderedDict()
+		outputs["id"] = self.id
+		outputs["pharmacy"] = self.pharmacy
+		outputs["city"] = self.city.city
+		outputs["state"] = self.state()
+		return outputs
 
+	def getHTMLRow(self, htmlTable):
+		outputs = self.select()
+		tdList = []
+		for key in outputs:
+			tdList.append(outputs[key])
+		htmlTable.getRow(tdList)
+		return htmlTable
+# ============================================================================ #
 class Doctor(models.Model):
 	doctor = models.CharField('Doctor', null=False, blank=False, unique=True, max_length=50)
 	city = models.ForeignKey(City, null=False, blank=False, on_delete=models.PROTECT)
@@ -138,8 +147,7 @@ class Doctor(models.Model):
 
 	class Meta:
 		unique_together = (("doctor", "city"),)
-
-
+# ============================================================================ #
 class Check(models.Model):
 	productFK = models.ForeignKey(Product, null=False, blank=False, on_delete=models.PROTECT)
 	pharmacyCityFK = models.ForeignKey(Pharmacy, null=False, blank=False, on_delete=models.PROTECT)
@@ -147,3 +155,4 @@ class Check(models.Model):
 	checker = models.CharField('Checker', null=False, blank=False, max_length=50)
 	checkerMobile = models.CharField('Cheaker Mobile', null=False, blank=False, max_length=11)
 	checkerEmail = models.CharField('Cheaker Email', null=False, blank=False, max_length=50)
+# ============================================================================ #
