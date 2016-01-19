@@ -39,7 +39,7 @@ class Validator:
 			self.validatorMessage = self.validatorMessage + "\n" + validatorMessage
 		self.validatorMessage = re.sub('^\n', '', self.validatorMessage)
 		if self.validatorMessage: return self.validatorMessage
-		else : return None
+		else : return False
 # ============================================================================ #
 class ValidatorsDictionary:
 	def __init__(self):

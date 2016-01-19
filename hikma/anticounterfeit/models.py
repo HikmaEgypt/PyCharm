@@ -45,6 +45,21 @@ class UniqueRandomNumbers(models.Model):
 
 		return fieldsValidatorsRulesDictionary
 
+	def searchSelectSQL(self):
+		searchSelectSQL = '''
+			SELECT anticounterfeit_UniqueRandomNumbers.id,
+			anticounterfeit_UniqueRandomNumbers.product_id,
+			anticounterfeit_UniqueRandomNumbers.internalOrExternal,
+			anticounterfeit_UniqueRandomNumbers.count,
+			anticounterfeit_UniqueRandomNumbers.batchNumber,
+			anticounterfeit_UniqueRandomNumbers.dateAndTime,
+			anticounterfeit_UniqueRandomNumbers.active
+			FROM anticounterfeit_UniqueRandomNumbers INNER JOIN  anticounterfeit_Product
+			ON anticounterfeit_UniqueRandomNumbers.product_id = anticounterfeit_Product.id
+			WHERE
+			'''
+		return searchSelectSQL
+
 	def insert(self, inputs):
 		productInstance = Product.objects.get(id=inputs["product"])
 		self.product = productInstance
@@ -156,3 +171,32 @@ class Check(models.Model):
 	checkerMobile = models.CharField('Cheaker Mobile', null=False, blank=False, max_length=11)
 	checkerEmail = models.CharField('Cheaker Email', null=False, blank=False, max_length=50)
 # ============================================================================ #
+'''
+	SELECT *
+	FROM TABLENAME
+	INNER JOIN
+	anticounterfeit_Product,
+	anticounterfeit_UniqueRandomNumbers,
+	anticounterfeit_UniqueRandomNumber,
+	anticounterfeit_City,
+	anticounterfeit_State,
+	anticounterfeit_Pharmacy,
+	anticounterfeit_Doctor
+	ON
+	anticounterfeit_UniqueRandomNumbers.product_id = anticounterfeit_Product.id
+	AND anticounterfeit_UniqueRandomNumber.uniqueRandomNumbers_id = anticounterfeit_UniqueRandomNumber.id
+	AND anticounterfeit_Pharmacy.city_id = anticounterfeit_City.id
+	AND anticounterfeit_Doctor.city_id = anticounterfeit_City.id
+	AND anticounterfeit_City.state_id = anticounterfeit_State.id
+'''
+'''
+	SELECT anticounterfeit_Pharmacy.id
+	FROM anticounterfeit_Pharmacy
+	INNER JOIN
+	anticounterfeit_City,
+	anticounterfeit_State
+	ON
+	anticounterfeit_Pharmacy.city_id = anticounterfeit_City.id
+	AND anticounterfeit_City.state_id = anticounterfeit_State.id
+	WHERE anticounterfeit_State.id=2
+'''

@@ -9,6 +9,7 @@ from .models import Product, State, City, Pharmacy, Doctor, UniqueRandomNumbers
 from django.db.models import Q
 from .akelsaman.Validator import Validator, ValidatorsDictionary
 from .akelsaman.HTML import HTMLTable
+from .akelsaman.Search import Search
 
 # Create your views here.
 # ============================================================================ #
@@ -52,6 +53,7 @@ def uniqueRandomNumbersEdit(request, urn=0):
 # ============================================================================ #
 def uniqueRandomNumbersFilters(request):
 	uniqueRandomNumbers = UniqueRandomNumbers()
+	search = Search()
 	if request.POST:
 		fieldsValidatorsRulesDictionary = uniqueRandomNumbers.fieldsValidatorsRulesDictionary()
 		va = ValidatorsDictionary()
@@ -70,28 +72,12 @@ def uniqueRandomNumbersFilters(request):
 			aa = "Product001"
 			bb = Q(product__product=aa)
 			cc = Q(id__lte=10) & bb
-			dd = '''
-					SELECT anticounterfeit_UniqueRandomNumbers.id,
-					anticounterfeit_UniqueRandomNumbers.product_id
-					FROM anticounterfeit_UniqueRandomNumbers INNER JOIN  anticounterfeit_Product
-					ON anticounterfeit_UniqueRandomNumbers.product_id = anticounterfeit_Product.id
-					WHERE anticounterfeit_UniqueRandomNumbers.id < 10 and anticounterfeit_Product.product LIKE "Product"
-					'''
-			ee = '''
-					SELECT anticounterfeit_Pharmacy.id
-					FROM anticounterfeit_Pharmacy
-					INNER JOIN anticounterfeit_City,
-					anticounterfeit_State,
-
-					ON anticounterfeit_Pharmacy.city_id = anticounterfeit_City.id
-					AND anticounterfeit_City.state_id = anticounterfeit_State.id
-					AND
-					WHERE anticounterfeit_State.id=2
+			searchSQL = uniqueRandomNumbers.searchSelectSQL() + '''
+					(anticounterfeit_UniqueRandomNumbers.id < 10) AND (anticounterfeit_Product.product NOT LIKE "%002%")
 					'''
 			#uniqueRandomNumbers = UniqueRandomNumbers.objects.filter(cc)
-			#uniqueRandomNumbers = UniqueRandomNumbers.objects.raw(dd)
-			uniqueRandomNumbers = Pharmacy.objects.raw(ee)
-
+			print(search.getWhere(request.POST))
+			uniqueRandomNumbers = UniqueRandomNumbers.objects.raw(searchSQL)
 
 			htmlTable = HTMLTable()
 			for uniqueRandomNumber in uniqueRandomNumbers:
